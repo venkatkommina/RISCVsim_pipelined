@@ -2,8 +2,14 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <map>
 
 using namespace std;
+
+map<uint32_t, PredictorEntry> branch_predictor;
+map<uint32_t, BTBEntry> btb;
+uint32_t total_predictions = 0;
+uint32_t correct_predictions = 0;
 
 // Define global variables
 uint32_t PC = 0x0;
@@ -40,9 +46,42 @@ void fetch() {
     if (if_id.instruction == 0xFFFFFFFF) {
         is_draining = true;
     }
-    PC += 4;
+    
+    // Check if instruction is a branch/jump
+    bool is_beq = (if_id.instruction & 0x7F) == 0x63; // beq
+    bool is_jal = (if_id.instruction & 0x7F) == 0x6F; // jal
+    bool is_jalr = (if_id.instruction & 0x7F) == 0x67; // jalr
+    bool predict_taken = false;
+    uint32_t predicted_target = PC + 4;
+
+    // Check BTB
+    bool btb_hit = (btb.find(if_id.PC) != btb.end() && btb[if_id.PC].valid);
+    if (is_beq || is_jal || is_jalr) {
+        if (btb_hit) {
+            if (is_beq) {
+                predict_taken = branch_predictor[if_id.PC].state;
+            } else if (is_jal || is_jalr) {
+                predict_taken = true; // Always taken
+            }
+            if (predict_taken) {
+                predicted_target = btb[if_id.PC].target;
+            }
+        }
+        total_predictions++; // Count prediction even on BTB miss
+    }
+
+    // Update PC
+    PC = predict_taken ? predicted_target : PC + 4;
+
+    // Output
     cout << "Fetch: Instruction 0x" << hex << setw(8) << setfill('0') 
-         << if_id.instruction << " at PC=0x" << if_id.PC << dec << " (Cycle " << total_cycles << ")" << endl;
+         << if_id.instruction << " at PC=0x" << if_id.PC << dec 
+         << " (Cycle " << total_cycles << ")";
+    if (is_beq || is_jal || is_jalr) {
+        cout << ", Predicted: " << (predict_taken ? "Taken to 0x" + to_string(predicted_target) : "Not Taken");
+        cout << ", BTB: " << (btb_hit ? "Hit" : "Miss");
+    }
+    cout << endl;
 }
 
 void decode() {
@@ -254,46 +293,65 @@ void execute() {
         ex_mem.alu_result = id_ex.rs1_val * id_ex.rs2_val;
     }
 
+    // Branch and Jump Handling
+    bool actual_taken = false;
+    uint32_t actual_target = id_ex.PC + 4;
+
     if (id_ex.is_beq) {
         ex_mem.is_branch = (id_ex.rs1_val == id_ex.rs2_val);
         ex_mem.branch_target = id_ex.PC + id_ex.imm;
-        if (ex_mem.is_branch) {
+        actual_taken = ex_mem.is_branch;
+        actual_target = ex_mem.branch_target;
+    } else if (id_ex.is_jal) {
+        ex_mem.alu_result = id_ex.PC + 4; // Return address
+        actual_taken = true;
+        actual_target = id_ex.PC + id_ex.imm;
+    } else if (id_ex.is_jalr) {
+        ex_mem.alu_result = id_ex.PC + 4;
+        actual_taken = true;
+        actual_target = (id_ex.rs1_val + id_ex.imm) & ~1; // Align to word
+    }
+
+    // Update Predictor and BTB
+    if (id_ex.is_beq || id_ex.is_jal || id_ex.is_jalr) {
+        // Determine prediction
+        bool predicted_taken = false;
+        uint32_t predicted_target = id_ex.PC + 4;
+        bool btb_hit = (btb.find(id_ex.PC) != btb.end() && btb[id_ex.PC].valid);
+        if (btb_hit) {
+            predicted_taken = id_ex.is_beq ? branch_predictor[id_ex.PC].state : true;
+            predicted_target = btb[id_ex.PC].target;
+        }
+
+        // Check prediction correctness
+        bool prediction_correct = (predicted_taken == actual_taken) && 
+                                    (!actual_taken || predicted_target == actual_target);
+
+        // Increment predictions even on BTB miss
+        total_predictions++;
+
+        if (prediction_correct) {
+            if (btb_hit) {
+                correct_predictions++;
+            }
+        } else {
             control_hazards++;
-            cout << "Control Hazard Detected: PC=0x" << hex << id_ex.PC << ", Target=0x" << ex_mem.branch_target << dec << endl;
-            PC = ex_mem.branch_target;
-            if_id = IF_ID(); // Flush IF/ID
-            id_ex = ID_EX(); // Flush ID/EX
-            cout << "Flushing pipeline due to branch taken" << endl;
+            cout << "Control Hazard Detected: PC=0x" << hex << id_ex.PC 
+                    << ", Target=0x" << actual_target << dec << endl;
+            cout << "Flushing pipeline due to " << (id_ex.is_beq ? "branch" : "jump") 
+                    << (btb_hit ? " misprediction" : " BTB miss") << endl;
+            PC = actual_target;
+            if_id = IF_ID();
+            id_ex = ID_EX();
             control_hazard_flush = true;
         }
-    }
 
-    if (id_ex.is_jal) {
-        ex_mem.branch_target = id_ex.PC + id_ex.imm;
-        ex_mem.alu_result = id_ex.PC + 4;
-        ex_mem.reg_write = true; // Ensure writeback for rd
-        control_hazards++;
-        cout << "Control Hazard Detected: PC=0x" << hex << id_ex.PC << ", Target=0x" << ex_mem.branch_target << dec << endl;
-        PC = ex_mem.branch_target;
-        if_id = IF_ID(); // Flush IF/ID
-        id_ex = ID_EX(); // Flush ID/EX
-        cout << "Flushing pipeline due to jump" << endl;
-        control_hazard_flush = true;
-    } else if (id_ex.is_jalr) {
-        ex_mem.branch_target = (id_ex.rs1_val + id_ex.imm) & ~0x1;
-        ex_mem.alu_result = id_ex.PC + 4;
-        ex_mem.reg_write = true; // Ensure writeback for rd
-        control_hazards++;
-        cout << "Control Hazard Detected: PC=0x" << hex << id_ex.PC << ", Target=0x" << ex_mem.branch_target << dec << endl;
-        PC = ex_mem.branch_target;
-        if_id = IF_ID(); // Flush IF/ID
-        id_ex = ID_EX(); // Flush ID/EX
-        cout << "Flushing pipeline due to jump" << endl;
-        control_hazard_flush = true;
-    }
-
-    if (id_ex.is_sw) {
-        ex_mem.rs2_val = id_ex.rs2_val;
+        // Update predictor (only for beq) and BTB
+        if (id_ex.is_beq) {
+            branch_predictor[id_ex.PC].state = actual_taken;
+        }
+        btb[id_ex.PC].target = actual_target;
+        btb[id_ex.PC].valid = true;
     }
 
     cout << "Execute: ALU Result=0x" << hex << setw(8) << setfill('0') << ex_mem.alu_result;

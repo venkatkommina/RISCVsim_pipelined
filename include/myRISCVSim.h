@@ -5,6 +5,8 @@
 #include <unordered_map>
 #include <string>
 
+#include <map>
+
 // Define pipeline register structure for IF/ID
 struct IF_ID {
     uint32_t PC;
@@ -68,6 +70,25 @@ struct MEM_WB {
     uint32_t mem_data;    // Data read from memory (for lw)
     bool mem_read; //added for lw instrucions - removing heuristic check mem_data!=0 (as we can use lw rd, 0(some_memory location) can also contain 0)
 };
+
+// Branch Predictor Entry
+struct PredictorEntry {
+    bool state; // 0 = not taken, 1 = taken
+    PredictorEntry() : state(false) {}
+};
+
+// BTB Entry
+struct BTBEntry {
+    uint32_t target; // Predicted target address
+    bool valid;      // Is this entry valid?
+    BTBEntry() : target(0), valid(false) {}
+};
+
+// Global variables
+extern std::map<uint32_t, PredictorEntry> branch_predictor; // PC -> predictor state
+extern std::map<uint32_t, BTBEntry> btb;                   // PC -> target address
+extern uint32_t total_predictions;
+extern uint32_t correct_predictions;
 
 // Global variables
 extern uint32_t PC;

@@ -101,6 +101,9 @@ int main(int argc, char* argv[]) {
     cout << "Data Transfer Instructions: " << data_transfer_instructions << endl;
     cout << "ALU Instructions: " << alu_instructions << endl;
     cout << "Control Instructions: " << control_instructions << endl;
+    cout << "Branch Predictions: " << total_predictions << endl;
+    cout << "Correct Predictions: " << correct_predictions << endl;
+    cout << "Prediction Accuracy: " << (total_predictions ? (correct_predictions * 100.0 / total_predictions) : 0) << "%" << endl;
 
     cout << "\nFinal Register File State:" << endl;
     cout << "-------------------------" << endl;
