@@ -27,15 +27,16 @@ void load_mc_file(const string& filename) {
 }
 
 int main(int argc, char* argv[]) {
-    if (argc < 4) {
-        cerr << "Usage: " << argv[0] << " <input.mc> <pipelining_enabled> <forwarding_enabled>" << endl;
+    if (argc < 6) {
+        cerr << "Usage: " << argv[0] << " <input.mc> <pipelining_enabled> <forwarding_enabled> <branch_predictor_init> <print_bpu_details>" << endl;
         return 1;
     }
-
+    
     load_mc_file(argv[1]);
     pipelining_enabled = (stoi(argv[2]) != 0);
     forwarding_enabled = (stoi(argv[3]) != 0);
-
+    branch_predictor_init = (stoi(argv[4]) != 0);
+    print_bpu_details = (stoi(argv[5]) != 0);
     bool exit_detected = false;
     uint32_t drain_cycles = 0;
 
@@ -89,6 +90,7 @@ int main(int argc, char* argv[]) {
                 if (drain_cycles > 4) break; // Ensure 4 full drain cycles
             }
             total_cycles++;
+            print_bpu_state();
         }
     }
 
@@ -101,6 +103,9 @@ int main(int argc, char* argv[]) {
     cout << "Data Transfer Instructions: " << data_transfer_instructions << endl;
     cout << "ALU Instructions: " << alu_instructions << endl;
     cout << "Control Instructions: " << control_instructions << endl;
+    cout << "Total Branch Predictions: " << total_predictions << endl;
+    cout << "Correct Branch Predictions: " << correct_predictions << endl;
+    cout << "Branch Mispredictions: " << branch_mispredictions << endl;
 
     cout << "\nFinal Register File State:" << endl;
     cout << "-------------------------" << endl;

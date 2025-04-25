@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <unordered_map>
 #include <string>
+#include <map>
 
 // Define pipeline register structure for IF/ID
 struct IF_ID {
@@ -36,6 +37,7 @@ struct ID_EX {
     bool is_lui;
     bool is_auipc;
     bool is_beq;
+    bool is_bne;  
     bool is_jal;
     bool is_jalr;
     bool is_mul;       // Added for mul instruction
@@ -68,6 +70,22 @@ struct MEM_WB {
     uint32_t mem_data;    // Data read from memory (for lw)
     bool mem_read; //added for lw instrucions - removing heuristic check mem_data!=0 (as we can use lw rd, 0(some_memory location) can also contain 0)
 };
+
+// Branch Prediction Unit (BPU) Entry
+struct BPU {
+    bool predictor_state;  // 0 = Not Taken, 1 = Taken
+    uint32_t btb_target;   // Predicted target address
+    bool btb_valid;        // Is this BTB entry valid?
+    BPU() : predictor_state(false), btb_target(0), btb_valid(false) {}
+};
+
+// Branch Predictor Variables
+extern std::map<uint32_t, BPU> branch_prediction_unit; // PC -> BPU entry
+extern bool branch_predictor_init;  // Knob6: Initialize predictor state (0: NT- NT, 1: T)
+extern uint32_t total_predictions;  // Total branch predictions made
+extern uint32_t correct_predictions;  // Correct branch predictions
+extern uint32_t branch_mispredictions;  // Stat10: Number of branch mispredictions
+extern bool print_bpu_details;  // Knob6: Enable/disable BPU details printing
 
 // Global variables
 extern uint32_t PC;
@@ -111,5 +129,6 @@ uint32_t read_word(uint32_t addr, const std::unordered_map<uint32_t, uint8_t>& m
 void write_word(uint32_t addr, uint32_t value, std::unordered_map<uint32_t, uint8_t>& mem);
 int32_t sign_extend(uint32_t value, int bits);
 bool is_valid_instruction(uint32_t instruction);
+void print_bpu_state();
 
 #endif

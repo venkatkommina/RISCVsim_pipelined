@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <map>
 
 using namespace std;
 
@@ -33,6 +34,13 @@ uint32_t stalls = 0;
 uint32_t data_transfer_instructions = 0; // Stat4
 uint32_t alu_instructions = 0;          // Stat5
 uint32_t control_instructions = 0;      // Stat6
+
+map<uint32_t, BPU> branch_prediction_unit;
+bool branch_predictor_init = false;  // Default to Not Taken
+uint32_t total_predictions = 0;
+uint32_t correct_predictions = 0;
+uint32_t branch_mispredictions = 0;
+bool print_bpu_details = false;  // Default to disabled
 
 void fetch() {
     if_id.PC = PC;
@@ -182,6 +190,37 @@ void decode() {
 
     id_ex.PC = if_id.PC;
 
+    if (id_ex.is_beq || id_ex.is_bne || id_ex.is_jal || id_ex.is_jalr) {
+        // Initialize BPU entry if not present
+        if (branch_prediction_unit.find(id_ex.PC) == branch_prediction_unit.end()) {
+            branch_prediction_unit[id_ex.PC] = BPU();
+            branch_prediction_unit[id_ex.PC].predictor_state = branch_predictor_init;
+        }
+    
+        uint32_t predicted_pc;
+        if (id_ex.is_beq || id_ex.is_bne) {
+            total_predictions++;
+            bool predicted_taken = branch_prediction_unit[id_ex.PC].predictor_state;
+            predicted_pc = predicted_taken && branch_prediction_unit[id_ex.PC].btb_valid
+                          ? branch_prediction_unit[id_ex.PC].btb_target
+                          : id_ex.PC + 4;
+            cout << "Decode: " << (id_ex.is_beq ? "beq" : "bne") << " predicted "
+                 << (predicted_taken ? "Taken" : "Not Taken")
+                 << ", PC set to 0x" << hex << predicted_pc << dec << endl;
+        } else {
+            // jal and jalr: always taken, use BTB if valid
+            predicted_pc = branch_prediction_unit[id_ex.PC].btb_valid
+                           ? branch_prediction_unit[id_ex.PC].btb_target
+                           : (id_ex.is_jal ? id_ex.PC + id_ex.imm : (id_ex.rs1_val + id_ex.imm) & ~0x1);
+            cout << "Decode: " << (id_ex.is_jal ? "jal" : "jalr")
+                 << " using " << (branch_prediction_unit[id_ex.PC].btb_valid ? "BTB" : "computed")
+                 << " target, PC set to 0x" << hex << predicted_pc << dec << endl;
+        }
+    
+        PC = predicted_pc;
+        id_ex.PC = predicted_pc; // Store for execute stage verification
+    }
+
     // Debug output
     stringstream ss;
     if (id_ex.is_add) ss << "Decode: add, rd=x" << id_ex.rd << ", rs1=x" << rs1 << ", rs2=x" << rs2;
@@ -254,42 +293,81 @@ void execute() {
         ex_mem.alu_result = id_ex.rs1_val * id_ex.rs2_val;
     }
 
-    if (id_ex.is_beq) {
-        ex_mem.is_branch = (id_ex.rs1_val == id_ex.rs2_val);
+    if (id_ex.is_beq || id_ex.is_bne) {
+        bool actual_taken = id_ex.is_beq ? (id_ex.rs1_val == id_ex.rs2_val) : (id_ex.rs1_val != id_ex.rs2_val);
+        ex_mem.is_branch = actual_taken;
         ex_mem.branch_target = id_ex.PC + id_ex.imm;
-        if (ex_mem.is_branch) {
+    
+        bool predicted_taken = branch_prediction_unit[id_ex.PC].predictor_state;
+        uint32_t predicted_pc = id_ex.PC;
+    
+        bool mispredicted = (actual_taken != predicted_taken) ||
+                           (actual_taken && predicted_pc != ex_mem.branch_target);
+        if (mispredicted) {
+            branch_mispredictions++;
             control_hazards++;
-            cout << "Control Hazard Detected: PC=0x" << hex << id_ex.PC << ", Target=0x" << ex_mem.branch_target << dec << endl;
-            PC = ex_mem.branch_target;
-            if_id = IF_ID(); // Flush IF/ID
-            id_ex = ID_EX(); // Flush ID/EX
-            cout << "Flushing pipeline due to branch taken" << endl;
+            PC = actual_taken ? ex_mem.branch_target : id_ex.PC + 4;
+            cout << "Execute: " << (id_ex.is_beq ? "beq" : "bne") << " Misprediction at PC=0x" << hex << id_ex.PC
+                 << ", Actual: " << (actual_taken ? "Taken" : "Not Taken")
+                 << ", Predicted: " << (predicted_taken ? "Taken" : "Not Taken")
+                 << ", Correcting PC to 0x" << PC << dec << endl;
+            if_id = IF_ID();
+            id_ex = ID_EX();
             control_hazard_flush = true;
+        } else {
+            correct_predictions++;
+            cout << "Execute: " << (id_ex.is_beq ? "beq" : "bne") << " Correct at PC=0x" << hex << id_ex.PC
+                 << ", Outcome: " << (actual_taken ? "Taken" : "Not Taken") << dec << endl;
         }
-    }
-
-    if (id_ex.is_jal) {
-        ex_mem.branch_target = id_ex.PC + id_ex.imm;
+    
+        branch_prediction_unit[id_ex.PC].predictor_state = actual_taken;
+        if (actual_taken) {
+            branch_prediction_unit[id_ex.PC].btb_target = ex_mem.branch_target;
+            branch_prediction_unit[id_ex.PC].btb_valid = true;
+        }
         ex_mem.alu_result = id_ex.PC + 4;
-        ex_mem.reg_write = true; // Ensure writeback for rd
-        control_hazards++;
-        cout << "Control Hazard Detected: PC=0x" << hex << id_ex.PC << ", Target=0x" << ex_mem.branch_target << dec << endl;
-        PC = ex_mem.branch_target;
-        if_id = IF_ID(); // Flush IF/ID
-        id_ex = ID_EX(); // Flush ID/EX
-        cout << "Flushing pipeline due to jump" << endl;
-        control_hazard_flush = true;
+    } else if (id_ex.is_jal) {
+        ex_mem.branch_target = id_ex.PC + id_ex.imm;
+        uint32_t predicted_pc = id_ex.PC;
+    
+        if (predicted_pc != ex_mem.branch_target) {
+            branch_mispredictions++;
+            control_hazards++;
+            PC = ex_mem.branch_target;
+            cout << "Execute: jal BTB Misprediction at PC=0x" << hex << id_ex.PC
+                 << ", Correcting PC to 0x" << PC << dec << endl;
+            if_id = IF_ID();
+            id_ex = ID_EX();
+            control_hazard_flush = true;
+        } else {
+            cout << "Execute: jal Correct at PC=0x" << hex << id_ex.PC << dec << endl;
+        }
+    
+        branch_prediction_unit[id_ex.PC].btb_target = ex_mem.branch_target;
+        branch_prediction_unit[id_ex.PC].btb_valid = true;
+        ex_mem.alu_result = id_ex.PC + 4;
+        ex_mem.reg_write = true;
     } else if (id_ex.is_jalr) {
         ex_mem.branch_target = (id_ex.rs1_val + id_ex.imm) & ~0x1;
+        uint32_t predicted_pc = id_ex.PC;
+    
+        if (predicted_pc != ex_mem.branch_target) {
+            branch_mispredictions++;
+            control_hazards++;
+            PC = ex_mem.branch_target;
+            cout << "Execute: jalr BTB Misprediction at PC=0x" << hex << id_ex.PC
+                 << ", Correcting PC to 0x" << PC << dec << endl;
+            if_id = IF_ID();
+            id_ex = ID_EX();
+            control_hazard_flush = true;
+        } else {
+            cout << "Execute: jalr Correct at PC=0x" << hex << id_ex.PC << dec << endl;
+        }
+    
+        branch_prediction_unit[id_ex.PC].btb_target = ex_mem.branch_target;
+        branch_prediction_unit[id_ex.PC].btb_valid = true;
         ex_mem.alu_result = id_ex.PC + 4;
-        ex_mem.reg_write = true; // Ensure writeback for rd
-        control_hazards++;
-        cout << "Control Hazard Detected: PC=0x" << hex << id_ex.PC << ", Target=0x" << ex_mem.branch_target << dec << endl;
-        PC = ex_mem.branch_target;
-        if_id = IF_ID(); // Flush IF/ID
-        id_ex = ID_EX(); // Flush ID/EX
-        cout << "Flushing pipeline due to jump" << endl;
-        control_hazard_flush = true;
+        ex_mem.reg_write = true;
     }
 
     if (id_ex.is_sw) {
@@ -394,4 +472,20 @@ bool is_valid_instruction(uint32_t instruction) {
     uint32_t opcode = instruction & 0x7F;
     return (opcode == 0x33 || opcode == 0x13 || opcode == 0x03 || opcode == 0x23 ||
             opcode == 0x63 || opcode == 0x67 || opcode == 0x37 || opcode == 0x17 || opcode == 0x6F);
+}
+
+void print_bpu_state() {
+    if (!print_bpu_details) return;
+    cout << "Cycle " << total_cycles << " BPU State:" << endl;
+    cout << "-------------------------" << endl;
+    if (branch_prediction_unit.empty()) {
+        cout << "No branch predictions recorded." << endl;
+    } else {
+        for (const auto& entry : branch_prediction_unit) {
+            cout << "PC=0x" << hex << setw(8) << setfill('0') << entry.first
+                 << ": State=" << (entry.second.predictor_state ? "Taken" : "Not Taken")
+                 << ", BTB Target=0x" << setw(8) << setfill('0') << entry.second.btb_target
+                 << ", BTB Valid=" << (entry.second.btb_valid ? "Yes" : "No") << dec << endl;
+        }
+    }
 }
