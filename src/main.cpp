@@ -114,20 +114,26 @@ int main(int argc, char* argv[]) {
     if (data_memory.empty()) {
         cout << "No data written to memory." << endl;
     } else {
-        uint32_t min_addr = data_memory.begin()->first & ~0x3;
-        uint32_t max_addr = 0;
+        // Find min and max aligned addresses
+        uint32_t min_aligned_addr = UINT32_MAX;
+        uint32_t max_aligned_addr = 0;
         for (const auto& pair : data_memory) {
-            max_addr = max(max_addr, pair.first);
+            uint32_t aligned_addr = pair.first & ~0x3; // Align to 4-byte boundary
+            min_aligned_addr = min(min_aligned_addr, aligned_addr);
+            max_aligned_addr = max(max_aligned_addr, aligned_addr);
         }
-        max_addr |= 0x3;
-        for (uint32_t addr = min_addr; addr <= max_addr; addr += 4) {
+
+        // Iterate over aligned addresses and print if all 4 bytes exist
+        for (uint32_t addr = min_aligned_addr; addr <= max_aligned_addr; addr += 4) {
             try {
-                uint32_t value = (data_memory.at(addr) << 0) | (data_memory.at(addr + 1) << 8) |
-                                (data_memory.at(addr + 2) << 16) | (data_memory.at(addr + 3) << 24);
-                cout << "0x" << hex << setw(8) << setfill('0') << addr << ": 0x" << setw(8) << setfill('0') 
-                     << value << dec << endl;
+                uint32_t value = (data_memory.at(addr) << 0) |
+                                (data_memory.at(addr + 1) << 8) |
+                                (data_memory.at(addr + 2) << 16) |
+                                (data_memory.at(addr + 3) << 24);
+                cout << "0x" << hex << setw(8) << setfill('0') << addr << ": 0x" << setw(8) << setfill('0')
+                    << value << dec << endl;
             } catch (const out_of_range&) {
-                // Skip uninitialized addresses
+                // Skip addresses where not all 4 bytes are initialized
             }
         }
     }
