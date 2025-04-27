@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <unordered_map>
 #include <string>
+#include <map>
 
 // Define pipeline register structure for IF/ID
 struct IF_ID {
@@ -13,15 +14,17 @@ struct IF_ID {
 
 // Define pipeline register structure for ID/EX with detailed control signals
 struct ID_EX {
-    uint32_t PC;
-    uint32_t rs1_val;  // Value of source register 1
-    uint32_t rs2_val;  // Value of source register 2
+    uint32_t instr_PC;    // Original PC of the instruction
+    uint32_t PC;          // Current PC (unused in this fix, kept for compatibility)
+    uint32_t predicted_pc;// Predicted PC for branch/jump verification
+    uint32_t rs1_val;     // Value of source register 1
+    uint32_t rs2_val;     // Value of source register 2
     uint32_t base_reg;
-    uint32_t imm;      // Immediate value
-    uint32_t rd;       // Destination register
+    uint32_t imm;         // Immediate value
+    uint32_t rd;          // Destination register
     uint32_t opcode;
-    uint32_t func3;    // Function code 3 bits
-    uint32_t func7;    // Function code 7 bits
+    uint32_t func3;       // Function code 3 bits
+    uint32_t func7;       // Function code 7 bits
 
     // Specific instruction flags
     bool is_add;
@@ -36,9 +39,19 @@ struct ID_EX {
     bool is_lui;
     bool is_auipc;
     bool is_beq;
+    bool is_bne;  
     bool is_jal;
     bool is_jalr;
-    bool is_mul;       // Added for mul instruction
+    bool is_mul;
+    bool is_blt;
+    bool is_bge;
+    bool is_sll;
+    bool is_srl;
+    bool is_sra;
+    bool is_rem;
+    bool is_lb;
+    bool is_sb;
+    bool is_byte_op;  // true for lb and sb
 
     uint32_t alu_op;   // 0: ADD, 1: SUB, 2: AND, 3: OR, etc.
     bool reg_write;    // Enable register writeback
@@ -58,6 +71,8 @@ struct EX_MEM {
     bool mem_write;       // Enable memory write
     bool is_branch;       // Flag for branch taken
     uint32_t branch_target; // Target PC for branch/jump
+    bool is_byte_op;
+    uint32_t instr_PC;
 };
 
 // Define pipeline register structure for MEM/WB
@@ -66,8 +81,29 @@ struct MEM_WB {
     uint32_t rd;          // Destination register
     bool reg_write;       // Enable register writeback
     uint32_t mem_data;    // Data read from memory (for lw)
-    bool mem_read; //added for lw instrucions - removing heuristic check mem_data!=0 (as we can use lw rd, 0(some_memory location) can also contain 0)
+    bool mem_read; //added for lw instructions
+    uint32_t instr_PC;
 };
+
+// Branch Prediction Unit (BPU) Entry
+struct BPU {
+    bool predictor_state;  // 0 = Not Taken, 1 = Taken
+    uint32_t btb_target;   // Predicted target address
+    bool btb_valid;        // Is this BTB entry valid?
+    BPU() : predictor_state(false), btb_target(0), btb_valid(false) {}
+};
+
+// Branch Predictor Variables
+extern std::map<uint32_t, BPU> branch_prediction_unit; // PC -> BPU entry
+extern bool branch_predictor_init;  // Knob6: Initialize predictor state (0: NT, 1: T)
+extern uint32_t total_predictions;  // Total branch predictions made
+extern uint32_t correct_predictions;  // Correct branch predictions
+extern uint32_t branch_mispredictions;  // Stat10: Number of branch mispredictions
+extern bool print_bpu_details;  // Knob5: Enable/disable BPU details printing
+extern bool print_register_file_arg;      // Knob3
+extern bool print_pipeline_registers; // Knob4
+extern bool track_instruction;        // Knob5
+extern uint32_t tracked_pc;           // PC of instruction to track for Knob5
 
 // Global variables
 extern uint32_t PC;
@@ -81,9 +117,7 @@ extern std::unordered_map<uint32_t, uint8_t> data_memory;
 extern uint32_t reg_file[32];  // Register file (x0 to x31)
 
 extern bool stall;
-
 extern bool control_hazard_flush;
-
 extern bool is_draining;
 
 // Knobs
@@ -111,5 +145,11 @@ uint32_t read_word(uint32_t addr, const std::unordered_map<uint32_t, uint8_t>& m
 void write_word(uint32_t addr, uint32_t value, std::unordered_map<uint32_t, uint8_t>& mem);
 int32_t sign_extend(uint32_t value, int bits);
 bool is_valid_instruction(uint32_t instruction);
+void print_bpu_state();
+void print_register_file();
+void print_IF_ID();
+void print_ID_EX();
+void print_EX_MEM();
+void print_MEM_WB();
 
 #endif
