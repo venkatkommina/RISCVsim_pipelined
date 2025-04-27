@@ -486,6 +486,7 @@ void execute() {
     }
 
     ex_mem.is_byte_op = id_ex.is_byte_op;
+    ex_mem.instr_PC = id_ex.instr_PC;
 
     cout << "Execute: ALU Result=0x" << hex << setw(8) << setfill('0') << ex_mem.alu_result;
     if (id_ex.is_beq || id_ex.is_bne) cout << ", Branch=" << (ex_mem.is_branch ? "Taken" : "Not Taken") << ", Target=0x" << hex << ex_mem.branch_target;
@@ -499,6 +500,7 @@ void memory_access() {
     mem_wb.reg_write = ex_mem.reg_write;
     mem_wb.mem_read = ex_mem.mem_read;
     mem_wb.alu_result = ex_mem.alu_result;
+    mem_wb.instr_PC = ex_mem.instr_PC;
 
     if (ex_mem.mem_read) {
         if (ex_mem.is_byte_op) {  // for lb
@@ -619,4 +621,46 @@ void print_bpu_state() {
                  << ", BTB Valid=" << (entry.second.btb_valid ? "Yes" : "No") << dec << endl;
         }
     }
+}
+
+bool print_register_file_arg = false;
+bool print_pipeline_registers = false;
+bool track_instruction = false;
+uint32_t tracked_pc = 0;
+
+void print_register_file() {
+    cout << "Register File:" << endl;
+    for (int i = 0; i < 32; i++) {
+        cout << "x" << dec << i << ": 0x" << hex << reg_file[i] << endl;
+    }
+    cout << endl;
+}
+
+void print_IF_ID() {
+    cout << "IF/ID: PC=0x" << hex << if_id.PC << ", Instruction=0x" << if_id.instruction << dec << endl;
+}
+
+void print_ID_EX() {
+    if (id_ex.opcode == 0) {
+        cout << "ID/EX: Bubble" << endl;
+    } else {
+        cout << "ID/EX: instr_PC=0x" << hex << id_ex.instr_PC << ", predicted_pc=0x" << id_ex.predicted_pc
+             << ", rs1_val=0x" << id_ex.rs1_val << ", rs2_val=0x" << id_ex.rs2_val
+             << ", imm=0x" << id_ex.imm << ", rd=x" << dec << id_ex.rd
+             << ", opcode=0x" << hex << id_ex.opcode << ", func3=0x" << id_ex.func3 << ", func7=0x" << id_ex.func7
+             << ", is_add=" << id_ex.is_add << ", is_sub=" << id_ex.is_sub << ", reg_write=" << id_ex.reg_write
+             << ", mem_read=" << id_ex.mem_read << ", mem_write=" << id_ex.mem_write << dec << endl;
+    }
+}
+
+void print_EX_MEM() {
+    cout << "EX/MEM: instr_PC=0x" << hex << ex_mem.instr_PC << ", alu_result=0x" << ex_mem.alu_result
+         << ", rs2_val=0x" << ex_mem.rs2_val << ", rd=x" << dec << ex_mem.rd
+         << ", reg_write=" << ex_mem.reg_write << ", mem_read=" << ex_mem.mem_read << ", mem_write=" << ex_mem.mem_write
+         << ", is_branch=" << ex_mem.is_branch << ", branch_target=0x" << hex << ex_mem.branch_target << dec << endl;
+}
+
+void print_MEM_WB() {
+    cout << "MEM/WB: instr_PC=0x" << hex << mem_wb.instr_PC << ", alu_result=0x" << mem_wb.alu_result
+         << ", rd=x" << dec << mem_wb.rd << ", reg_write=" << mem_wb.reg_write << ", mem_data=0x" << hex << mem_wb.mem_data << dec << endl;
 }

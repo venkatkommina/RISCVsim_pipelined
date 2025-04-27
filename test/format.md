@@ -1,0 +1,1 @@
+./bin/myRISCVsim <input.mc> <pipelining_enabled> <forwarding_enabled> <branch_predictor_init> <print_bpu_details> <print_register_file> <print_pipeline_registers> <track_instruction> [instruction_number]

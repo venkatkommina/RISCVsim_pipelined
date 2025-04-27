@@ -37,6 +37,8 @@ Execute: ALU Result=0x00000007 (Cycle 4)
 Forwarding EX_MEM.alu_result=0x7 to rs2 (x7)
 Decode: sw, rs1=x5, rs2=x7, imm=0x0 (Cycle 4)
 Fetch: Instruction 0x00200393 at PC=0x10 (Cycle 4)
+Cycle 4: Instruction at PC=0x10 completes fetch.
+IF/ID: PC=0x10, Instruction=0x200393
 Cycle 5 BPU State:
 -------------------------
 No branch predictions recorded.
@@ -44,6 +46,8 @@ Writeback: Wrote 0x00000005 to x06 (Cycle 5)
 Memory Access: (none) (Cycle 5)
 Execute: ALU Result=0x10000000 (Cycle 5)
 Decode: addi, rd=x7, rs1=x0, imm=0x2 (Cycle 5)
+Cycle 5: Instruction at PC=0x10 completes decode.
+ID/EX: instr_PC=0x10, predicted_pc=0x0, rs1_val=0x0, rs2_val=0x0, imm=0x2, rd=x7, opcode=0x13, func3=0x0, func7=0x0, is_add=0, is_sub=0, reg_write=1, mem_read=0, mem_write=0
 Fetch: Instruction 0x0072a223 at PC=0x14 (Cycle 5)
 Cycle 6 BPU State:
 -------------------------
@@ -51,6 +55,8 @@ No branch predictions recorded.
 Writeback: Wrote 0x00000007 to x07 (Cycle 6)
 Memory Access: Wrote 0x00000007 to Address=0x10000000 (Cycle 6)
 Execute: ALU Result=0x00000002 (Cycle 6)
+Cycle 6: Instruction at PC=0x10 completes execute.
+EX/MEM: instr_PC=0x10, alu_result=0x2, rs2_val=0x0, rd=x7, reg_write=1, mem_read=0, mem_write=0, is_branch=0, branch_target=0x0
 Forwarding EX_MEM.alu_result=0x2 to rs2 (x7)
 Decode: sw, rs1=x5, rs2=x7, imm=0x4 (Cycle 6)
 Fetch: Instruction 0x00900393 at PC=0x18 (Cycle 6)
@@ -59,6 +65,8 @@ Cycle 7 BPU State:
 No branch predictions recorded.
 Writeback: (none) (Cycle 7)
 Memory Access: (none) (Cycle 7)
+Cycle 7: Instruction at PC=0x10 completes memory access.
+MEM/WB: instr_PC=0x10, alu_result=0x2, rd=x7, reg_write=1, mem_data=0x0
 Execute: ALU Result=0x10000004 (Cycle 7)
 Decode: addi, rd=x7, rs1=x0, imm=0x9 (Cycle 7)
 Fetch: Instruction 0x0072a423 at PC=0x1c (Cycle 7)
@@ -66,6 +74,41 @@ Cycle 8 BPU State:
 -------------------------
 No branch predictions recorded.
 Writeback: Wrote 0x00000002 to x07 (Cycle 8)
+Cycle 8: Instruction at PC=0x10 completes writeback.
+Register File:
+x0: 0x0
+x1: 0x0
+x2: 0x0
+x3: 0x0
+x4: 0x0
+x5: 0x10000000
+x6: 0x5
+x7: 0x2
+x8: 0x0
+x9: 0x0
+x10: 0x0
+x11: 0x0
+x12: 0x0
+x13: 0x0
+x14: 0x0
+x15: 0x0
+x16: 0x0
+x17: 0x0
+x18: 0x0
+x19: 0x0
+x20: 0x0
+x21: 0x0
+x22: 0x0
+x23: 0x0
+x24: 0x0
+x25: 0x0
+x26: 0x0
+x27: 0x0
+x28: 0x0
+x29: 0x0
+x30: 0x0
+x31: 0x0
+
 Memory Access: Wrote 0x00000002 to Address=0x10000004 (Cycle 8)
 Execute: ALU Result=0x00000009 (Cycle 8)
 Forwarding EX_MEM.alu_result=0x9 to rs2 (x7)

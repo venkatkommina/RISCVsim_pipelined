@@ -27,8 +27,8 @@ void load_mc_file(const string& filename) {
 }
 
 int main(int argc, char* argv[]) {
-    if (argc < 6) {
-        cerr << "Usage: " << argv[0] << " <input.mc> <pipelining_enabled> <forwarding_enabled> <branch_predictor_init> <print_bpu_details>" << endl;
+    if (argc < 9) {
+        cerr << "Usage: " << argv[0] << " <input.mc> <pipelining_enabled> <forwarding_enabled> <branch_predictor_init> <print_bpu_details> <print_register_file_arg> <print_pipeline_registers> <track_instruction> [instruction_number]" << endl;
         return 1;
     }
     
@@ -37,6 +37,17 @@ int main(int argc, char* argv[]) {
     forwarding_enabled = (stoi(argv[3]) != 0);
     branch_predictor_init = (stoi(argv[4]) != 0);
     print_bpu_details = (stoi(argv[5]) != 0);
+    print_register_file_arg = (stoi(argv[6]) != 0);
+    print_pipeline_registers = (stoi(argv[7]) != 0);
+    track_instruction = (stoi(argv[8]) != 0);
+    if (track_instruction) {
+        if (argc < 10) {
+            cerr << "Error: Instruction number required for track_instruction" << endl;
+            return 1;
+        }
+        int instruction_number = stoi(argv[9]);
+        tracked_pc = (instruction_number - 1) * 4; // starts at PC=0, increment by 4
+    }
     bool exit_detected = false;
     uint32_t drain_cycles = 0;
 
@@ -65,29 +76,57 @@ int main(int argc, char* argv[]) {
     } else {
         while (true) {
             writeback();
+            if (track_instruction && mem_wb.instr_PC == tracked_pc) {
+                cout << "Cycle " << total_cycles << ": Instruction at PC=0x" << hex << tracked_pc << " completes writeback." << endl;
+                print_register_file();
+            }
             memory_access();
+            if (track_instruction && ex_mem.instr_PC == tracked_pc) {
+                cout << "Cycle " << total_cycles << ": Instruction at PC=0x" << hex << tracked_pc << " completes memory access." << endl;
+                print_MEM_WB();
+            }
             execute();
+            if (track_instruction && id_ex.instr_PC == tracked_pc) {
+                cout << "Cycle " << total_cycles << ": Instruction at PC=0x" << hex << tracked_pc << " completes execute." << endl;
+                print_EX_MEM();
+            }
             decode();
-            
+            if (track_instruction && if_id.PC == tracked_pc) {
+                cout << "Cycle " << total_cycles << ": Instruction at PC=0x" << hex << tracked_pc << " completes decode." << endl;
+                print_ID_EX();
+            }
             if (stall) {
                 id_ex = ID_EX();
                 stall = false;
                 stalls++;
                 cout << "Pipeline stalled this cycle" << endl;
-            } else if (control_hazard_flush) { // Only fetch if no control hazard
+            } else if (control_hazard_flush) {
                 cout << "Fetch: Skipped due to control hazard (Cycle " << total_cycles << ")" << endl;
-            } else{
+            } else {
                 fetch();
+                if (track_instruction && if_id.PC == tracked_pc) {
+                    cout << "Cycle " << total_cycles << ": Instruction at PC=0x" << hex << tracked_pc << " completes fetch." << endl;
+                    print_IF_ID();
+                }
             }
-
             control_hazard_flush = false;
-
             if (if_id.instruction == 0xFFFFFFFF && !exit_detected) {
                 exit_detected = true;
             }
             if (exit_detected) {
                 drain_cycles++;
-                if (drain_cycles > 4) break; // Ensure 4 full drain cycles
+                if (drain_cycles > 4) break;
+            }
+            if (print_pipeline_registers) {
+                cout << "Cycle " << total_cycles << " Pipeline Registers:" << endl;
+                print_IF_ID();
+                print_ID_EX();
+                print_EX_MEM();
+                print_MEM_WB();
+            }
+            if (print_register_file_arg) {
+                cout << "Cycle " << total_cycles << " Register File:" << endl;
+                print_register_file();
             }
             total_cycles++;
             print_bpu_state();

@@ -72,6 +72,7 @@ struct EX_MEM {
     bool is_branch;       // Flag for branch taken
     uint32_t branch_target; // Target PC for branch/jump
     bool is_byte_op;
+    uint32_t instr_PC;
 };
 
 // Define pipeline register structure for MEM/WB
@@ -81,6 +82,7 @@ struct MEM_WB {
     bool reg_write;       // Enable register writeback
     uint32_t mem_data;    // Data read from memory (for lw)
     bool mem_read; //added for lw instructions
+    uint32_t instr_PC;
 };
 
 // Branch Prediction Unit (BPU) Entry
@@ -97,7 +99,11 @@ extern bool branch_predictor_init;  // Knob6: Initialize predictor state (0: NT,
 extern uint32_t total_predictions;  // Total branch predictions made
 extern uint32_t correct_predictions;  // Correct branch predictions
 extern uint32_t branch_mispredictions;  // Stat10: Number of branch mispredictions
-extern bool print_bpu_details;  // Knob6: Enable/disable BPU details printing
+extern bool print_bpu_details;  // Knob5: Enable/disable BPU details printing
+extern bool print_register_file_arg;      // Knob3
+extern bool print_pipeline_registers; // Knob4
+extern bool track_instruction;        // Knob5
+extern uint32_t tracked_pc;           // PC of instruction to track for Knob5
 
 // Global variables
 extern uint32_t PC;
@@ -140,5 +146,10 @@ void write_word(uint32_t addr, uint32_t value, std::unordered_map<uint32_t, uint
 int32_t sign_extend(uint32_t value, int bits);
 bool is_valid_instruction(uint32_t instruction);
 void print_bpu_state();
+void print_register_file();
+void print_IF_ID();
+void print_ID_EX();
+void print_EX_MEM();
+void print_MEM_WB();
 
 #endif
