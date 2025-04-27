@@ -42,7 +42,16 @@ struct ID_EX {
     bool is_bne;  
     bool is_jal;
     bool is_jalr;
-    bool is_mul;       // Added for mul instruction
+    bool is_mul;
+    bool is_blt;
+    bool is_bge;
+    bool is_sll;
+    bool is_srl;
+    bool is_sra;
+    bool is_rem;
+    bool is_lb;
+    bool is_sb;
+    bool is_byte_op;  // true for lb and sb
 
     uint32_t alu_op;   // 0: ADD, 1: SUB, 2: AND, 3: OR, etc.
     bool reg_write;    // Enable register writeback
@@ -62,6 +71,7 @@ struct EX_MEM {
     bool mem_write;       // Enable memory write
     bool is_branch;       // Flag for branch taken
     uint32_t branch_target; // Target PC for branch/jump
+    bool is_byte_op;
 };
 
 // Define pipeline register structure for MEM/WB

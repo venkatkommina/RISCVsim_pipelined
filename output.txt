@@ -2,585 +2,2897 @@ Writeback: (none) (Cycle 0)
 Memory Access: (none) (Cycle 0)
 Execute: NOP (Cycle 0)
 Decode: NOP (flushed) (Cycle 0)
-Fetch: Instruction 0x80000137 at PC=0x0 (Cycle 0)
+Fetch: Instruction 0x100002b7 at PC=0x0 (Cycle 0)
+Cycle 1 BPU State:
+-------------------------
+No branch predictions recorded.
 Writeback: (none) (Cycle 1)
 Memory Access: (none) (Cycle 1)
 Execute: NOP (Cycle 1)
-Decode: lui, rd=x2, imm=0x80000000 (Cycle 1)
-Fetch: Instruction 0xfdc10113 at PC=0x4 (Cycle 1)
+Decode: lui, rd=x5, imm=0x10000000 (Cycle 1)
+Fetch: Instruction 0x00500313 at PC=0x4 (Cycle 1)
+Cycle 2 BPU State:
+-------------------------
+No branch predictions recorded.
 Writeback: (none) (Cycle 2)
 Memory Access: (none) (Cycle 2)
-Execute: ALU Result=0x80000000 (Cycle 2)
-Forwarding EX_MEM.alu_result=0x80000000 to rs1 (x2)
-Reading sp (x2): 0x80000000
-Decode: addi, rd=x2, rs1=x2, imm=0xffffffdc (Cycle 2)
-Fetch: Instruction 0x00a00593 at PC=0x8 (Cycle 2)
+Execute: ALU Result=0x10000000 (Cycle 2)
+Forwarding EX_MEM.alu_result=0x10000000 to rs2 (x5)
+Decode: addi, rd=x6, rs1=x0, imm=0x5 (Cycle 2)
+Fetch: Instruction 0x00700393 at PC=0x8 (Cycle 2)
+Cycle 3 BPU State:
+-------------------------
+No branch predictions recorded.
 Writeback: (none) (Cycle 3)
 Memory Access: (none) (Cycle 3)
-Execute: ALU Result=0x7fffffdc (Cycle 3)
-Decode: addi, rd=x11, rs1=x0, imm=0xa (Cycle 3)
-Fetch: Instruction 0x10000637 at PC=0xc (Cycle 3)
-Writing to sp (x2): 0x80000000
-Writeback: Wrote 0x80000000 to x02 (Cycle 4)
+Execute: ALU Result=0x00000005 (Cycle 3)
+Decode: addi, rd=x7, rs1=x0, imm=0x7 (Cycle 3)
+Fetch: Instruction 0x0072a023 at PC=0xc (Cycle 3)
+Cycle 4 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: Wrote 0x10000000 to x05 (Cycle 4)
 Memory Access: (none) (Cycle 4)
-Execute: ALU Result=0x0000000a (Cycle 4)
-Decode: lui, rd=x12, imm=0x10000000 (Cycle 4)
-Fetch: Instruction 0x10060613 at PC=0x10 (Cycle 4)
-Writing to sp (x2): 0x7fffffdc
-Writeback: Wrote 0x7fffffdc to x02 (Cycle 5)
+Execute: ALU Result=0x00000007 (Cycle 4)
+Forwarding EX_MEM.alu_result=0x7 to rs2 (x7)
+Decode: sw, rs1=x5, rs2=x7, imm=0x0 (Cycle 4)
+Fetch: Instruction 0x00200393 at PC=0x10 (Cycle 4)
+Cycle 5 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: Wrote 0x00000005 to x06 (Cycle 5)
 Memory Access: (none) (Cycle 5)
 Execute: ALU Result=0x10000000 (Cycle 5)
-Forwarding EX_MEM.alu_result=0x10000000 to rs1 (xc)
-Decode: addi, rd=x12, rs1=x12, imm=0x100 (Cycle 5)
-Fetch: Instruction 0x00000293 at PC=0x14 (Cycle 5)
-Writeback: Wrote 0x0000000a to x11 (Cycle 6)
-Memory Access: (none) (Cycle 6)
-Execute: ALU Result=0x10000100 (Cycle 6)
-Decode: addi, rd=x5, rs1=x0, imm=0x0 (Cycle 6)
-Fetch: Instruction 0x00100313 at PC=0x18 (Cycle 6)
-Writeback: Wrote 0x10000000 to x12 (Cycle 7)
+Decode: addi, rd=x7, rs1=x0, imm=0x2 (Cycle 5)
+Fetch: Instruction 0x0072a223 at PC=0x14 (Cycle 5)
+Cycle 6 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: Wrote 0x00000007 to x07 (Cycle 6)
+Memory Access: Wrote 0x00000007 to Address=0x10000000 (Cycle 6)
+Execute: ALU Result=0x00000002 (Cycle 6)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (x7)
+Decode: sw, rs1=x5, rs2=x7, imm=0x4 (Cycle 6)
+Fetch: Instruction 0x00900393 at PC=0x18 (Cycle 6)
+Cycle 7 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: (none) (Cycle 7)
 Memory Access: (none) (Cycle 7)
-Execute: ALU Result=0x00000000 (Cycle 7)
-Decode: addi, rd=x6, rs1=x0, imm=0x1 (Cycle 7)
-Fetch: Instruction 0x00058e13 at PC=0x1c (Cycle 7)
-Writeback: Wrote 0x10000100 to x12 (Cycle 8)
-Memory Access: (none) (Cycle 8)
-Execute: ALU Result=0x00000001 (Cycle 8)
-Decode: addi, rd=x28, rs1=x11, imm=0x0 (Cycle 8)
-Fetch: Instruction 0x040e0063 at PC=0x20 (Cycle 8)
-Writeback: Wrote 0x00000000 to x05 (Cycle 9)
+Execute: ALU Result=0x10000004 (Cycle 7)
+Decode: addi, rd=x7, rs1=x0, imm=0x9 (Cycle 7)
+Fetch: Instruction 0x0072a423 at PC=0x1c (Cycle 7)
+Cycle 8 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: Wrote 0x00000002 to x07 (Cycle 8)
+Memory Access: Wrote 0x00000002 to Address=0x10000004 (Cycle 8)
+Execute: ALU Result=0x00000009 (Cycle 8)
+Forwarding EX_MEM.alu_result=0x9 to rs2 (x7)
+Decode: sw, rs1=x5, rs2=x7, imm=0x8 (Cycle 8)
+Fetch: Instruction 0x00100393 at PC=0x20 (Cycle 8)
+Cycle 9 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: (none) (Cycle 9)
 Memory Access: (none) (Cycle 9)
-Execute: ALU Result=0x0000000a (Cycle 9)
-Forwarding EX_MEM.alu_result=0xa to rs1 (x1c)
-Decode: beq predicted Taken, PC set to 0x24
-Decode: beq, rs1=x28, rs2=x0, imm=0x40 (Cycle 9)
-Fetch: Instruction 0x00562023 at PC=0x24 (Cycle 9)
-Writeback: Wrote 0x00000001 to x06 (Cycle 10)
-Memory Access: (none) (Cycle 10)
-Execute: beq Misprediction at PC=0x20, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x24
-Execute: ALU Result=0x00000024 (Cycle 10)
-Decode: NOP (flushed) (Cycle 10)
-Fetch: Skipped due to control hazard (Cycle 10)
-Writeback: Wrote 0x0000000a to x28 (Cycle 11)
+Execute: ALU Result=0x10000008 (Cycle 9)
+Decode: addi, rd=x7, rs1=x0, imm=0x1 (Cycle 9)
+Fetch: Instruction 0x0072a623 at PC=0x24 (Cycle 9)
+Cycle 10 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: Wrote 0x00000009 to x07 (Cycle 10)
+Memory Access: Wrote 0x00000009 to Address=0x10000008 (Cycle 10)
+Execute: ALU Result=0x00000001 (Cycle 10)
+Forwarding EX_MEM.alu_result=0x1 to rs2 (x7)
+Decode: sw, rs1=x5, rs2=x7, imm=0xc (Cycle 10)
+Fetch: Instruction 0x00600393 at PC=0x28 (Cycle 10)
+Cycle 11 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: (none) (Cycle 11)
 Memory Access: (none) (Cycle 11)
-Execute: NOP (Cycle 11)
-Decode: NOP (flushed) (Cycle 11)
-Fetch: Instruction 0x00562023 at PC=0x24 (Cycle 11)
-Writeback: (none) (Cycle 12)
-Memory Access: (none) (Cycle 12)
-Execute: NOP (Cycle 12)
-Decode: sw, rs1=x12, rs2=x5, imm=0x0 (Cycle 12)
-Fetch: Instruction 0xfff58593 at PC=0x28 (Cycle 12)
+Execute: ALU Result=0x1000000c (Cycle 11)
+Decode: addi, rd=x7, rs1=x0, imm=0x6 (Cycle 11)
+Fetch: Instruction 0x0072a823 at PC=0x2c (Cycle 11)
+Cycle 12 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: Wrote 0x00000001 to x07 (Cycle 12)
+Memory Access: Wrote 0x00000001 to Address=0x1000000c (Cycle 12)
+Execute: ALU Result=0x00000006 (Cycle 12)
+Forwarding EX_MEM.alu_result=0x6 to rs2 (x7)
+Decode: sw, rs1=x5, rs2=x7, imm=0x10 (Cycle 12)
+Fetch: Instruction 0xfff30413 at PC=0x30 (Cycle 12)
+Cycle 13 BPU State:
+-------------------------
+No branch predictions recorded.
 Writeback: (none) (Cycle 13)
 Memory Access: (none) (Cycle 13)
-Execute: ALU Result=0x10000100 (Cycle 13)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 13)
-Fetch: Instruction 0x02058a63 at PC=0x2c (Cycle 13)
-Writeback: (none) (Cycle 14)
-Memory Access: Wrote 0x00000000 to Address=0x10000100 (Cycle 14)
-Execute: ALU Result=0x00000009 (Cycle 14)
-Forwarding EX_MEM.alu_result=0x9 to rs1 (xb)
-Decode: beq predicted Taken, PC set to 0x30
-Decode: beq, rs1=x11, rs2=x0, imm=0x34 (Cycle 14)
-Fetch: Instruction 0x00460613 at PC=0x30 (Cycle 14)
+Execute: ALU Result=0x10000010 (Cycle 13)
+Decode: addi, rd=x8, rs1=x6, imm=0xffffffff (Cycle 13)
+Fetch: Instruction 0x00000493 at PC=0x34 (Cycle 13)
+Cycle 14 BPU State:
+-------------------------
+No branch predictions recorded.
+Writeback: Wrote 0x00000006 to x07 (Cycle 14)
+Memory Access: Wrote 0x00000006 to Address=0x10000010 (Cycle 14)
+Execute: ALU Result=0x00000004 (Cycle 14)
+Decode: addi, rd=x9, rs1=x0, imm=0x0 (Cycle 14)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 14)
+Cycle 15 BPU State:
+-------------------------
+No branch predictions recorded.
 Writeback: (none) (Cycle 15)
 Memory Access: (none) (Cycle 15)
-Execute: beq Misprediction at PC=0x2c, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x30
-Execute: ALU Result=0x00000030 (Cycle 15)
-Decode: NOP (flushed) (Cycle 15)
-Fetch: Skipped due to control hazard (Cycle 15)
-Writeback: Wrote 0x00000009 to x11 (Cycle 16)
+Execute: ALU Result=0x00000000 (Cycle 15)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (x9)
+Forwarding MEM_WB.alu_result=0x4 to rs2 (x8)
+Decode: bge predicted Taken, PC set to 0x78
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 15)
+Fetch: Instruction 0xfff30313 at PC=0x78 (Cycle 15)
+Cycle 16 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000004 to x08 (Cycle 16)
 Memory Access: (none) (Cycle 16)
-Execute: NOP (Cycle 16)
+Execute: bge Misprediction at PC=0x38, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x3c
+Execute: ALU Result=0x0000003c (Cycle 16)
 Decode: NOP (flushed) (Cycle 16)
-Fetch: Instruction 0x00460613 at PC=0x30 (Cycle 16)
-Writeback: (none) (Cycle 17)
+Fetch: Skipped due to control hazard (Cycle 16)
+Cycle 17 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000000 to x09 (Cycle 17)
 Memory Access: (none) (Cycle 17)
 Execute: NOP (Cycle 17)
-Decode: addi, rd=x12, rs1=x12, imm=0x4 (Cycle 17)
-Fetch: Instruction 0x00662023 at PC=0x34 (Cycle 17)
+Decode: NOP (flushed) (Cycle 17)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 17)
+Cycle 18 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
 Writeback: (none) (Cycle 18)
 Memory Access: (none) (Cycle 18)
-Execute: ALU Result=0x10000104 (Cycle 18)
-Forwarding EX_MEM.alu_result=0x10000104 to rs1 (xc)
-Decode: sw, rs1=x12, rs2=x6, imm=0x0 (Cycle 18)
-Fetch: Instruction 0xfff58593 at PC=0x38 (Cycle 18)
+Execute: NOP (Cycle 18)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 18)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 18)
+Cycle 19 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
 Writeback: (none) (Cycle 19)
 Memory Access: (none) (Cycle 19)
-Execute: ALU Result=0x10000104 (Cycle 19)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 19)
-Fetch: Instruction 0x02058263 at PC=0x3c (Cycle 19)
-Writeback: Wrote 0x10000104 to x12 (Cycle 20)
-Memory Access: Wrote 0x00000001 to Address=0x10000104 (Cycle 20)
-Execute: ALU Result=0x00000008 (Cycle 20)
-Forwarding EX_MEM.alu_result=0x8 to rs1 (xb)
-Decode: beq predicted Taken, PC set to 0x40
-Decode: beq, rs1=x11, rs2=x0, imm=0x24 (Cycle 20)
-Fetch: Instruction 0x005303b3 at PC=0x40 (Cycle 20)
-Writeback: (none) (Cycle 21)
+Execute: ALU Result=0x00000000 (Cycle 19)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 19)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 19)
+Cycle 20 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: (none) (Cycle 20)
+Memory Access: (none) (Cycle 20)
+Execute: ALU Result=0x00000000 (Cycle 20)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 20)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 20)
+Cycle 21 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000000 to x11 (Cycle 21)
 Memory Access: (none) (Cycle 21)
-Execute: beq Misprediction at PC=0x3c, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x40
-Execute: ALU Result=0x00000040 (Cycle 21)
-Decode: NOP (flushed) (Cycle 21)
-Fetch: Skipped due to control hazard (Cycle 21)
-Writeback: Wrote 0x00000008 to x11 (Cycle 22)
+Execute: ALU Result=0x00000000 (Cycle 21)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 21)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 21)
+Cycle 22 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000000 to x11 (Cycle 22)
 Memory Access: (none) (Cycle 22)
-Execute: NOP (Cycle 22)
-Decode: NOP (flushed) (Cycle 22)
-Fetch: Instruction 0x005303b3 at PC=0x40 (Cycle 22)
-Writeback: (none) (Cycle 23)
+Execute: ALU Result=0x10000000 (Cycle 22)
+Forwarding EX_MEM.alu_result=0x10000000 to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 22)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 22)
+Cycle 23 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000000 to x11 (Cycle 23)
 Memory Access: (none) (Cycle 23)
-Execute: NOP (Cycle 23)
-Decode: add, rd=x7, rs1=x6, rs2=x5 (Cycle 23)
-Fetch: Instruction 0x00460613 at PC=0x44 (Cycle 23)
-Writeback: (none) (Cycle 24)
-Memory Access: (none) (Cycle 24)
+Execute: ALU Result=0x10000000 (Cycle 23)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 23)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 23)
+Cycle 24 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x10000000 to x12 (Cycle 24)
+Memory Access: Read Data=0x00000007 from Address=0x10000000 (Cycle 24)
 Execute: ALU Result=0x00000001 (Cycle 24)
-Decode: addi, rd=x12, rs1=x12, imm=0x4 (Cycle 24)
-Fetch: Instruction 0x00762023 at PC=0x48 (Cycle 24)
-Writeback: (none) (Cycle 25)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x1 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 24)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 24)
+Cycle 25 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000007 to x10 (Cycle 25)
 Memory Access: (none) (Cycle 25)
-Execute: ALU Result=0x10000108 (Cycle 25)
-Forwarding EX_MEM.alu_result=0x10000108 to rs1 (xc)
-Forwarding MEM_WB.alu_result=0x1 to rs2 (x7)
-Decode: sw, rs1=x12, rs2=x7, imm=0x0 (Cycle 25)
-Fetch: Instruction 0x00030293 at PC=0x4c (Cycle 25)
-Writeback: Wrote 0x00000001 to x07 (Cycle 26)
+Execute: ALU Result=0x00000002 (Cycle 25)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 25)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 25)
+Cycle 26 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000001 to x13 (Cycle 26)
 Memory Access: (none) (Cycle 26)
-Execute: ALU Result=0x10000108 (Cycle 26)
-Decode: addi, rd=x5, rs1=x6, imm=0x0 (Cycle 26)
-Fetch: Instruction 0x00038313 at PC=0x50 (Cycle 26)
-Writeback: Wrote 0x10000108 to x12 (Cycle 27)
-Memory Access: Wrote 0x00000001 to Address=0x10000108 (Cycle 27)
-Execute: ALU Result=0x00000001 (Cycle 27)
-Decode: addi, rd=x6, rs1=x7, imm=0x0 (Cycle 27)
-Fetch: Instruction 0xfff58593 at PC=0x54 (Cycle 27)
-Writeback: (none) (Cycle 28)
+Execute: ALU Result=0x00000004 (Cycle 26)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 26)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 26)
+Cycle 27 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000002 to x14 (Cycle 27)
+Memory Access: (none) (Cycle 27)
+Execute: ALU Result=0x10000004 (Cycle 27)
+Forwarding EX_MEM.alu_result=0x10000004 to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 27)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 27)
+Cycle 28 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000004 to x14 (Cycle 28)
 Memory Access: (none) (Cycle 28)
-Execute: ALU Result=0x00000001 (Cycle 28)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 28)
-Fetch: Instruction 0x00058463 at PC=0x58 (Cycle 28)
-Writeback: Wrote 0x00000001 to x05 (Cycle 29)
-Memory Access: (none) (Cycle 29)
-Execute: ALU Result=0x00000007 (Cycle 29)
-Forwarding EX_MEM.alu_result=0x7 to rs1 (xb)
-Decode: beq predicted Taken, PC set to 0x5c
-Decode: beq, rs1=x11, rs2=x0, imm=0x8 (Cycle 29)
-Fetch: Instruction 0xfe5ff06f at PC=0x5c (Cycle 29)
-Writeback: Wrote 0x00000001 to x06 (Cycle 30)
+Execute: ALU Result=0x10000004 (Cycle 28)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 29 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x10000004 to x15 (Cycle 29)
+Memory Access: Read Data=0x00000002 from Address=0x10000004 (Cycle 29)
+Execute: NOP (Cycle 29)
+Forwarding MEM_WB.mem_data=0x2 to rs2 (xd)
+Decode: blt predicted Taken, PC set to 0x70
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 29)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 29)
+Cycle 30 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000002 to x13 (Cycle 30)
 Memory Access: (none) (Cycle 30)
-Execute: beq Misprediction at PC=0x58, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x5c
-Execute: ALU Result=0x0000005c (Cycle 30)
+Execute: blt Misprediction at PC=0x64, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x68
+Execute: ALU Result=0x00000068 (Cycle 30)
 Decode: NOP (flushed) (Cycle 30)
 Fetch: Skipped due to control hazard (Cycle 30)
-Writeback: Wrote 0x00000007 to x11 (Cycle 31)
+Cycle 31 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: (none) (Cycle 31)
 Memory Access: (none) (Cycle 31)
 Execute: NOP (Cycle 31)
 Decode: NOP (flushed) (Cycle 31)
-Fetch: Instruction 0xfe5ff06f at PC=0x5c (Cycle 31)
+Fetch: Instruction 0x00d62023 at PC=0x68 (Cycle 31)
+Cycle 32 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
 Writeback: (none) (Cycle 32)
 Memory Access: (none) (Cycle 32)
 Execute: NOP (Cycle 32)
-Decode: jal using computed target, PC set to 0x40
-Decode: jal, rd=x0, offset=0xffffffe4 (Cycle 32)
-Fetch: Instruction 0x005303b3 at PC=0x40 (Cycle 32)
+Decode: sw, rs1=x12, rs2=x13, imm=0x0 (Cycle 32)
+Fetch: Instruction 0x00a7a023 at PC=0x6c (Cycle 32)
+Cycle 33 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
 Writeback: (none) (Cycle 33)
 Memory Access: (none) (Cycle 33)
-Execute: jal Correct at PC=0x5c
-Execute: jal at instr_PC=0x5c, imm=0xffffffe4, predicted_pc=0x40, branch_target=0x40
-Execute: ALU Result=0x00000060, Jump Target=0x40 (Cycle 33)
-Decode: add, rd=x7, rs1=x6, rs2=x5 (Cycle 33)
-Fetch: Instruction 0x00460613 at PC=0x44 (Cycle 33)
+Execute: ALU Result=0x10000000 (Cycle 33)
+Decode: sw, rs1=x15, rs2=x10, imm=0x0 (Cycle 33)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 33)
+Cycle 34 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
 Writeback: (none) (Cycle 34)
-Memory Access: (none) (Cycle 34)
-Execute: ALU Result=0x00000002 (Cycle 34)
-Decode: addi, rd=x12, rs1=x12, imm=0x4 (Cycle 34)
-Fetch: Instruction 0x00762023 at PC=0x48 (Cycle 34)
+Memory Access: Wrote 0x00000002 to Address=0x10000000 (Cycle 34)
+Execute: ALU Result=0x10000004 (Cycle 34)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 34)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 34)
+Cycle 35 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
 Writeback: (none) (Cycle 35)
-Memory Access: (none) (Cycle 35)
-Execute: ALU Result=0x1000010c (Cycle 35)
-Forwarding EX_MEM.alu_result=0x1000010c to rs1 (xc)
-Forwarding MEM_WB.alu_result=0x2 to rs2 (x7)
-Decode: sw, rs1=x12, rs2=x7, imm=0x0 (Cycle 35)
-Fetch: Instruction 0x00030293 at PC=0x4c (Cycle 35)
-Writeback: Wrote 0x00000002 to x07 (Cycle 36)
+Memory Access: Wrote 0x00000007 to Address=0x10000004 (Cycle 35)
+Execute: ALU Result=0x00000001 (Cycle 35)
+Decode: jal using computed target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 35)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 35)
+Cycle 36 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: (none) (Cycle 36)
 Memory Access: (none) (Cycle 36)
-Execute: ALU Result=0x1000010c (Cycle 36)
-Decode: addi, rd=x5, rs1=x6, imm=0x0 (Cycle 36)
-Fetch: Instruction 0x00038313 at PC=0x50 (Cycle 36)
-Writeback: Wrote 0x1000010c to x12 (Cycle 37)
-Memory Access: Wrote 0x00000002 to Address=0x1000010c (Cycle 37)
-Execute: ALU Result=0x00000001 (Cycle 37)
-Decode: addi, rd=x6, rs1=x7, imm=0x0 (Cycle 37)
-Fetch: Instruction 0xfff58593 at PC=0x54 (Cycle 37)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 36)
+Forwarding MEM_WB.alu_result=0x1 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 36)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 36)
+Cycle 37 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x09 (Cycle 37)
+Memory Access: (none) (Cycle 37)
+Execute: bge Correct at PC=0x38, Outcome: Not Taken
+Execute: ALU Result=0x0000003c (Cycle 37)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 37)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 37)
+Cycle 38 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 38)
 Memory Access: (none) (Cycle 38)
-Execute: ALU Result=0x00000002 (Cycle 38)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 38)
-Fetch: Instruction 0x00058463 at PC=0x58 (Cycle 38)
-Writeback: Wrote 0x00000001 to x05 (Cycle 39)
+Execute: ALU Result=0x00000001 (Cycle 38)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x1 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 38)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 38)
+Cycle 39 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 39)
 Memory Access: (none) (Cycle 39)
-Execute: ALU Result=0x00000006 (Cycle 39)
-Forwarding EX_MEM.alu_result=0x6 to rs1 (xb)
-Decode: beq predicted Not Taken, PC set to 0x5c
-Decode: beq, rs1=x11, rs2=x0, imm=0x8 (Cycle 39)
-Fetch: Instruction 0xfe5ff06f at PC=0x5c (Cycle 39)
-Writeback: Wrote 0x00000002 to x06 (Cycle 40)
+Execute: ALU Result=0x00000002 (Cycle 39)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 39)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 39)
+Cycle 40 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x11 (Cycle 40)
 Memory Access: (none) (Cycle 40)
-Execute: beq Correct at PC=0x58, Outcome: Not Taken
-Execute: ALU Result=0x0000005c, Branch=Not Taken, Target=0x60 (Cycle 40)
-Decode: jal using BTB target, PC set to 0x40
-Decode: jal, rd=x0, offset=0xffffffe4 (Cycle 40)
-Fetch: Instruction 0x005303b3 at PC=0x40 (Cycle 40)
-Writeback: Wrote 0x00000006 to x11 (Cycle 41)
+Execute: ALU Result=0x00000004 (Cycle 40)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 40)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 40)
+Cycle 41 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x11 (Cycle 41)
 Memory Access: (none) (Cycle 41)
-Execute: jal Correct at PC=0x5c
-Execute: jal at instr_PC=0x5c, imm=0xffffffe4, predicted_pc=0x40, branch_target=0x40
-Execute: ALU Result=0x00000060, Jump Target=0x40 (Cycle 41)
-Decode: add, rd=x7, rs1=x6, rs2=x5 (Cycle 41)
-Fetch: Instruction 0x00460613 at PC=0x44 (Cycle 41)
-Writeback: (none) (Cycle 42)
+Execute: ALU Result=0x10000004 (Cycle 41)
+Forwarding EX_MEM.alu_result=0x10000004 to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 41)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 41)
+Cycle 42 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x11 (Cycle 42)
 Memory Access: (none) (Cycle 42)
-Execute: ALU Result=0x00000003 (Cycle 42)
-Decode: addi, rd=x12, rs1=x12, imm=0x4 (Cycle 42)
-Fetch: Instruction 0x00762023 at PC=0x48 (Cycle 42)
-Writeback: (none) (Cycle 43)
-Memory Access: (none) (Cycle 43)
-Execute: ALU Result=0x10000110 (Cycle 43)
-Forwarding EX_MEM.alu_result=0x10000110 to rs1 (xc)
-Forwarding MEM_WB.alu_result=0x3 to rs2 (x7)
-Decode: sw, rs1=x12, rs2=x7, imm=0x0 (Cycle 43)
-Fetch: Instruction 0x00030293 at PC=0x4c (Cycle 43)
-Writeback: Wrote 0x00000003 to x07 (Cycle 44)
+Execute: ALU Result=0x10000004 (Cycle 42)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 42)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 42)
+Cycle 43 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x10000004 to x12 (Cycle 43)
+Memory Access: Read Data=0x00000007 from Address=0x10000004 (Cycle 43)
+Execute: ALU Result=0x00000002 (Cycle 43)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 43)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 43)
+Cycle 44 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000007 to x10 (Cycle 44)
 Memory Access: (none) (Cycle 44)
-Execute: ALU Result=0x10000110 (Cycle 44)
-Decode: addi, rd=x5, rs1=x6, imm=0x0 (Cycle 44)
-Fetch: Instruction 0x00038313 at PC=0x50 (Cycle 44)
-Writeback: Wrote 0x10000110 to x12 (Cycle 45)
-Memory Access: Wrote 0x00000003 to Address=0x10000110 (Cycle 45)
-Execute: ALU Result=0x00000002 (Cycle 45)
-Decode: addi, rd=x6, rs1=x7, imm=0x0 (Cycle 45)
-Fetch: Instruction 0xfff58593 at PC=0x54 (Cycle 45)
-Writeback: (none) (Cycle 46)
+Execute: ALU Result=0x00000004 (Cycle 44)
+Forwarding EX_MEM.alu_result=0x4 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 44)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 44)
+Cycle 45 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x13 (Cycle 45)
+Memory Access: (none) (Cycle 45)
+Execute: ALU Result=0x00000008 (Cycle 45)
+Forwarding EX_MEM.alu_result=0x8 to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 45)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 45)
+Cycle 46 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x14 (Cycle 46)
 Memory Access: (none) (Cycle 46)
-Execute: ALU Result=0x00000003 (Cycle 46)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 46)
-Fetch: Instruction 0x00058463 at PC=0x58 (Cycle 46)
-Writeback: Wrote 0x00000002 to x05 (Cycle 47)
+Execute: ALU Result=0x10000008 (Cycle 46)
+Forwarding EX_MEM.alu_result=0x10000008 to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 46)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 46)
+Cycle 47 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000008 to x14 (Cycle 47)
 Memory Access: (none) (Cycle 47)
-Execute: ALU Result=0x00000005 (Cycle 47)
-Forwarding EX_MEM.alu_result=0x5 to rs1 (xb)
-Decode: beq predicted Not Taken, PC set to 0x5c
-Decode: beq, rs1=x11, rs2=x0, imm=0x8 (Cycle 47)
-Fetch: Instruction 0xfe5ff06f at PC=0x5c (Cycle 47)
-Writeback: Wrote 0x00000003 to x06 (Cycle 48)
-Memory Access: (none) (Cycle 48)
-Execute: beq Correct at PC=0x58, Outcome: Not Taken
-Execute: ALU Result=0x0000005c, Branch=Not Taken, Target=0x60 (Cycle 48)
-Decode: jal using BTB target, PC set to 0x40
-Decode: jal, rd=x0, offset=0xffffffe4 (Cycle 48)
-Fetch: Instruction 0x005303b3 at PC=0x40 (Cycle 48)
-Writeback: Wrote 0x00000005 to x11 (Cycle 49)
+Execute: ALU Result=0x10000008 (Cycle 47)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 48 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x10000008 to x15 (Cycle 48)
+Memory Access: Read Data=0x00000009 from Address=0x10000008 (Cycle 48)
+Execute: NOP (Cycle 48)
+Forwarding MEM_WB.mem_data=0x9 to rs2 (xd)
+Decode: blt predicted Not Taken, PC set to 0x68
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 48)
+Fetch: Instruction 0x00d62023 at PC=0x68 (Cycle 48)
+Cycle 49 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000009 to x13 (Cycle 49)
 Memory Access: (none) (Cycle 49)
-Execute: jal Correct at PC=0x5c
-Execute: jal at instr_PC=0x5c, imm=0xffffffe4, predicted_pc=0x40, branch_target=0x40
-Execute: ALU Result=0x00000060, Jump Target=0x40 (Cycle 49)
-Decode: add, rd=x7, rs1=x6, rs2=x5 (Cycle 49)
-Fetch: Instruction 0x00460613 at PC=0x44 (Cycle 49)
+Execute: blt Misprediction at PC=0x64, Actual: Taken, Predicted: Not Taken, Correcting PC to 0x70
+Execute: ALU Result=0x00000068 (Cycle 49)
+Decode: NOP (flushed) (Cycle 49)
+Fetch: Skipped due to control hazard (Cycle 49)
+Cycle 50 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 50)
 Memory Access: (none) (Cycle 50)
-Execute: ALU Result=0x00000005 (Cycle 50)
-Decode: addi, rd=x12, rs1=x12, imm=0x4 (Cycle 50)
-Fetch: Instruction 0x00762023 at PC=0x48 (Cycle 50)
+Execute: NOP (Cycle 50)
+Decode: NOP (flushed) (Cycle 50)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 50)
+Cycle 51 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 51)
 Memory Access: (none) (Cycle 51)
-Execute: ALU Result=0x10000114 (Cycle 51)
-Forwarding EX_MEM.alu_result=0x10000114 to rs1 (xc)
-Forwarding MEM_WB.alu_result=0x5 to rs2 (x7)
-Decode: sw, rs1=x12, rs2=x7, imm=0x0 (Cycle 51)
-Fetch: Instruction 0x00030293 at PC=0x4c (Cycle 51)
-Writeback: Wrote 0x00000005 to x07 (Cycle 52)
+Execute: NOP (Cycle 51)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 51)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 51)
+Cycle 52 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 52)
 Memory Access: (none) (Cycle 52)
-Execute: ALU Result=0x10000114 (Cycle 52)
-Decode: addi, rd=x5, rs1=x6, imm=0x0 (Cycle 52)
-Fetch: Instruction 0x00038313 at PC=0x50 (Cycle 52)
-Writeback: Wrote 0x10000114 to x12 (Cycle 53)
-Memory Access: Wrote 0x00000005 to Address=0x10000114 (Cycle 53)
-Execute: ALU Result=0x00000003 (Cycle 53)
-Decode: addi, rd=x6, rs1=x7, imm=0x0 (Cycle 53)
-Fetch: Instruction 0xfff58593 at PC=0x54 (Cycle 53)
-Writeback: (none) (Cycle 54)
+Execute: ALU Result=0x00000002 (Cycle 52)
+Decode: jal using BTB target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 52)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 52)
+Cycle 53 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 53)
+Memory Access: (none) (Cycle 53)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 53)
+Forwarding MEM_WB.alu_result=0x2 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 53)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 53)
+Cycle 54 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x09 (Cycle 54)
 Memory Access: (none) (Cycle 54)
-Execute: ALU Result=0x00000005 (Cycle 54)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 54)
-Fetch: Instruction 0x00058463 at PC=0x58 (Cycle 54)
-Writeback: Wrote 0x00000003 to x05 (Cycle 55)
+Execute: bge Correct at PC=0x38, Outcome: Not Taken
+Execute: ALU Result=0x0000003c (Cycle 54)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 54)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 54)
+Cycle 55 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 55)
 Memory Access: (none) (Cycle 55)
-Execute: ALU Result=0x00000004 (Cycle 55)
-Forwarding EX_MEM.alu_result=0x4 to rs1 (xb)
-Decode: beq predicted Not Taken, PC set to 0x5c
-Decode: beq, rs1=x11, rs2=x0, imm=0x8 (Cycle 55)
-Fetch: Instruction 0xfe5ff06f at PC=0x5c (Cycle 55)
-Writeback: Wrote 0x00000005 to x06 (Cycle 56)
+Execute: ALU Result=0x00000002 (Cycle 55)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 55)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 55)
+Cycle 56 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 56)
 Memory Access: (none) (Cycle 56)
-Execute: beq Correct at PC=0x58, Outcome: Not Taken
-Execute: ALU Result=0x0000005c, Branch=Not Taken, Target=0x60 (Cycle 56)
-Decode: jal using BTB target, PC set to 0x40
-Decode: jal, rd=x0, offset=0xffffffe4 (Cycle 56)
-Fetch: Instruction 0x005303b3 at PC=0x40 (Cycle 56)
-Writeback: Wrote 0x00000004 to x11 (Cycle 57)
+Execute: ALU Result=0x00000004 (Cycle 56)
+Forwarding EX_MEM.alu_result=0x4 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 56)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 56)
+Cycle 57 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x11 (Cycle 57)
 Memory Access: (none) (Cycle 57)
-Execute: jal Correct at PC=0x5c
-Execute: jal at instr_PC=0x5c, imm=0xffffffe4, predicted_pc=0x40, branch_target=0x40
-Execute: ALU Result=0x00000060, Jump Target=0x40 (Cycle 57)
-Decode: add, rd=x7, rs1=x6, rs2=x5 (Cycle 57)
-Fetch: Instruction 0x00460613 at PC=0x44 (Cycle 57)
-Writeback: (none) (Cycle 58)
+Execute: ALU Result=0x00000008 (Cycle 57)
+Forwarding EX_MEM.alu_result=0x8 to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 57)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 57)
+Cycle 58 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x11 (Cycle 58)
 Memory Access: (none) (Cycle 58)
-Execute: ALU Result=0x00000008 (Cycle 58)
-Decode: addi, rd=x12, rs1=x12, imm=0x4 (Cycle 58)
-Fetch: Instruction 0x00762023 at PC=0x48 (Cycle 58)
-Writeback: (none) (Cycle 59)
+Execute: ALU Result=0x10000008 (Cycle 58)
+Forwarding EX_MEM.alu_result=0x10000008 to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 58)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 58)
+Cycle 59 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000008 to x11 (Cycle 59)
 Memory Access: (none) (Cycle 59)
-Execute: ALU Result=0x10000118 (Cycle 59)
-Forwarding EX_MEM.alu_result=0x10000118 to rs1 (xc)
-Forwarding MEM_WB.alu_result=0x8 to rs2 (x7)
-Decode: sw, rs1=x12, rs2=x7, imm=0x0 (Cycle 59)
-Fetch: Instruction 0x00030293 at PC=0x4c (Cycle 59)
-Writeback: Wrote 0x00000008 to x07 (Cycle 60)
-Memory Access: (none) (Cycle 60)
-Execute: ALU Result=0x10000118 (Cycle 60)
-Decode: addi, rd=x5, rs1=x6, imm=0x0 (Cycle 60)
-Fetch: Instruction 0x00038313 at PC=0x50 (Cycle 60)
-Writeback: Wrote 0x10000118 to x12 (Cycle 61)
-Memory Access: Wrote 0x00000008 to Address=0x10000118 (Cycle 61)
-Execute: ALU Result=0x00000005 (Cycle 61)
-Decode: addi, rd=x6, rs1=x7, imm=0x0 (Cycle 61)
-Fetch: Instruction 0xfff58593 at PC=0x54 (Cycle 61)
-Writeback: (none) (Cycle 62)
+Execute: ALU Result=0x10000008 (Cycle 59)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 59)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 59)
+Cycle 60 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x10000008 to x12 (Cycle 60)
+Memory Access: Read Data=0x00000009 from Address=0x10000008 (Cycle 60)
+Execute: ALU Result=0x00000003 (Cycle 60)
+Forwarding EX_MEM.alu_result=0x3 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x3 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 60)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 60)
+Cycle 61 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000009 to x10 (Cycle 61)
+Memory Access: (none) (Cycle 61)
+Execute: ALU Result=0x00000006 (Cycle 61)
+Forwarding EX_MEM.alu_result=0x6 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x6 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 61)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 61)
+Cycle 62 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000003 to x13 (Cycle 62)
 Memory Access: (none) (Cycle 62)
-Execute: ALU Result=0x00000008 (Cycle 62)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 62)
-Fetch: Instruction 0x00058463 at PC=0x58 (Cycle 62)
-Writeback: Wrote 0x00000005 to x05 (Cycle 63)
+Execute: ALU Result=0x0000000c (Cycle 62)
+Forwarding EX_MEM.alu_result=0xc to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 62)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 62)
+Cycle 63 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000006 to x14 (Cycle 63)
 Memory Access: (none) (Cycle 63)
-Execute: ALU Result=0x00000003 (Cycle 63)
-Forwarding EX_MEM.alu_result=0x3 to rs1 (xb)
-Decode: beq predicted Not Taken, PC set to 0x5c
-Decode: beq, rs1=x11, rs2=x0, imm=0x8 (Cycle 63)
-Fetch: Instruction 0xfe5ff06f at PC=0x5c (Cycle 63)
-Writeback: Wrote 0x00000008 to x06 (Cycle 64)
+Execute: ALU Result=0x1000000c (Cycle 63)
+Forwarding EX_MEM.alu_result=0x1000000c to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 63)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 63)
+Cycle 64 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x0000000c to x14 (Cycle 64)
 Memory Access: (none) (Cycle 64)
-Execute: beq Correct at PC=0x58, Outcome: Not Taken
-Execute: ALU Result=0x0000005c, Branch=Not Taken, Target=0x60 (Cycle 64)
-Decode: jal using BTB target, PC set to 0x40
-Decode: jal, rd=x0, offset=0xffffffe4 (Cycle 64)
-Fetch: Instruction 0x005303b3 at PC=0x40 (Cycle 64)
-Writeback: Wrote 0x00000003 to x11 (Cycle 65)
-Memory Access: (none) (Cycle 65)
-Execute: jal Correct at PC=0x5c
-Execute: jal at instr_PC=0x5c, imm=0xffffffe4, predicted_pc=0x40, branch_target=0x40
-Execute: ALU Result=0x00000060, Jump Target=0x40 (Cycle 65)
-Decode: add, rd=x7, rs1=x6, rs2=x5 (Cycle 65)
-Fetch: Instruction 0x00460613 at PC=0x44 (Cycle 65)
-Writeback: (none) (Cycle 66)
+Execute: ALU Result=0x1000000c (Cycle 64)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 65 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x1000000c to x15 (Cycle 65)
+Memory Access: Read Data=0x00000001 from Address=0x1000000c (Cycle 65)
+Execute: NOP (Cycle 65)
+Forwarding MEM_WB.mem_data=0x1 to rs2 (xd)
+Decode: blt predicted Taken, PC set to 0x70
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 65)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 65)
+Cycle 66 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x13 (Cycle 66)
 Memory Access: (none) (Cycle 66)
-Execute: ALU Result=0x0000000d (Cycle 66)
-Decode: addi, rd=x12, rs1=x12, imm=0x4 (Cycle 66)
-Fetch: Instruction 0x00762023 at PC=0x48 (Cycle 66)
+Execute: blt Misprediction at PC=0x64, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x68
+Execute: ALU Result=0x00000068 (Cycle 66)
+Decode: NOP (flushed) (Cycle 66)
+Fetch: Skipped due to control hazard (Cycle 66)
+Cycle 67 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 67)
 Memory Access: (none) (Cycle 67)
-Execute: ALU Result=0x1000011c (Cycle 67)
-Forwarding EX_MEM.alu_result=0x1000011c to rs1 (xc)
-Forwarding MEM_WB.alu_result=0xd to rs2 (x7)
-Decode: sw, rs1=x12, rs2=x7, imm=0x0 (Cycle 67)
-Fetch: Instruction 0x00030293 at PC=0x4c (Cycle 67)
-Writeback: Wrote 0x0000000d to x07 (Cycle 68)
+Execute: NOP (Cycle 67)
+Decode: NOP (flushed) (Cycle 67)
+Fetch: Instruction 0x00d62023 at PC=0x68 (Cycle 67)
+Cycle 68 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 68)
 Memory Access: (none) (Cycle 68)
-Execute: ALU Result=0x1000011c (Cycle 68)
-Decode: addi, rd=x5, rs1=x6, imm=0x0 (Cycle 68)
-Fetch: Instruction 0x00038313 at PC=0x50 (Cycle 68)
-Writeback: Wrote 0x1000011c to x12 (Cycle 69)
-Memory Access: Wrote 0x0000000d to Address=0x1000011c (Cycle 69)
-Execute: ALU Result=0x00000008 (Cycle 69)
-Decode: addi, rd=x6, rs1=x7, imm=0x0 (Cycle 69)
-Fetch: Instruction 0xfff58593 at PC=0x54 (Cycle 69)
+Execute: NOP (Cycle 68)
+Decode: sw, rs1=x12, rs2=x13, imm=0x0 (Cycle 68)
+Fetch: Instruction 0x00a7a023 at PC=0x6c (Cycle 68)
+Cycle 69 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 69)
+Memory Access: (none) (Cycle 69)
+Execute: ALU Result=0x10000008 (Cycle 69)
+Decode: sw, rs1=x15, rs2=x10, imm=0x0 (Cycle 69)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 69)
+Cycle 70 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 70)
-Memory Access: (none) (Cycle 70)
-Execute: ALU Result=0x0000000d (Cycle 70)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 70)
-Fetch: Instruction 0x00058463 at PC=0x58 (Cycle 70)
-Writeback: Wrote 0x00000008 to x05 (Cycle 71)
-Memory Access: (none) (Cycle 71)
-Execute: ALU Result=0x00000002 (Cycle 71)
-Forwarding EX_MEM.alu_result=0x2 to rs1 (xb)
-Decode: beq predicted Not Taken, PC set to 0x5c
-Decode: beq, rs1=x11, rs2=x0, imm=0x8 (Cycle 71)
-Fetch: Instruction 0xfe5ff06f at PC=0x5c (Cycle 71)
-Writeback: Wrote 0x0000000d to x06 (Cycle 72)
+Memory Access: Wrote 0x00000001 to Address=0x10000008 (Cycle 70)
+Execute: ALU Result=0x1000000c (Cycle 70)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 70)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 70)
+Cycle 71 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 71)
+Memory Access: Wrote 0x00000009 to Address=0x1000000c (Cycle 71)
+Execute: ALU Result=0x00000003 (Cycle 71)
+Decode: jal using BTB target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 71)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 71)
+Cycle 72 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 72)
 Memory Access: (none) (Cycle 72)
-Execute: beq Correct at PC=0x58, Outcome: Not Taken
-Execute: ALU Result=0x0000005c, Branch=Not Taken, Target=0x60 (Cycle 72)
-Decode: jal using BTB target, PC set to 0x40
-Decode: jal, rd=x0, offset=0xffffffe4 (Cycle 72)
-Fetch: Instruction 0x005303b3 at PC=0x40 (Cycle 72)
-Writeback: Wrote 0x00000002 to x11 (Cycle 73)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 72)
+Forwarding MEM_WB.alu_result=0x3 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 72)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 72)
+Cycle 73 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000003 to x09 (Cycle 73)
 Memory Access: (none) (Cycle 73)
-Execute: jal Correct at PC=0x5c
-Execute: jal at instr_PC=0x5c, imm=0xffffffe4, predicted_pc=0x40, branch_target=0x40
-Execute: ALU Result=0x00000060, Jump Target=0x40 (Cycle 73)
-Decode: add, rd=x7, rs1=x6, rs2=x5 (Cycle 73)
-Fetch: Instruction 0x00460613 at PC=0x44 (Cycle 73)
+Execute: bge Correct at PC=0x38, Outcome: Not Taken
+Execute: ALU Result=0x0000003c (Cycle 73)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 73)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 73)
+Cycle 74 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 74)
 Memory Access: (none) (Cycle 74)
-Execute: ALU Result=0x00000015 (Cycle 74)
-Decode: addi, rd=x12, rs1=x12, imm=0x4 (Cycle 74)
-Fetch: Instruction 0x00762023 at PC=0x48 (Cycle 74)
+Execute: ALU Result=0x00000003 (Cycle 74)
+Forwarding EX_MEM.alu_result=0x3 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x3 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 74)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 74)
+Cycle 75 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 75)
 Memory Access: (none) (Cycle 75)
-Execute: ALU Result=0x10000120 (Cycle 75)
-Forwarding EX_MEM.alu_result=0x10000120 to rs1 (xc)
-Forwarding MEM_WB.alu_result=0x15 to rs2 (x7)
-Decode: sw, rs1=x12, rs2=x7, imm=0x0 (Cycle 75)
-Fetch: Instruction 0x00030293 at PC=0x4c (Cycle 75)
-Writeback: Wrote 0x00000015 to x07 (Cycle 76)
+Execute: ALU Result=0x00000006 (Cycle 75)
+Forwarding EX_MEM.alu_result=0x6 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x6 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 75)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 75)
+Cycle 76 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000003 to x11 (Cycle 76)
 Memory Access: (none) (Cycle 76)
-Execute: ALU Result=0x10000120 (Cycle 76)
-Decode: addi, rd=x5, rs1=x6, imm=0x0 (Cycle 76)
-Fetch: Instruction 0x00038313 at PC=0x50 (Cycle 76)
-Writeback: Wrote 0x10000120 to x12 (Cycle 77)
-Memory Access: Wrote 0x00000015 to Address=0x10000120 (Cycle 77)
-Execute: ALU Result=0x0000000d (Cycle 77)
-Decode: addi, rd=x6, rs1=x7, imm=0x0 (Cycle 77)
-Fetch: Instruction 0xfff58593 at PC=0x54 (Cycle 77)
-Writeback: (none) (Cycle 78)
+Execute: ALU Result=0x0000000c (Cycle 76)
+Forwarding EX_MEM.alu_result=0xc to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 76)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 76)
+Cycle 77 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000006 to x11 (Cycle 77)
+Memory Access: (none) (Cycle 77)
+Execute: ALU Result=0x1000000c (Cycle 77)
+Forwarding EX_MEM.alu_result=0x1000000c to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 77)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 77)
+Cycle 78 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x0000000c to x11 (Cycle 78)
 Memory Access: (none) (Cycle 78)
-Execute: ALU Result=0x00000015 (Cycle 78)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 78)
-Fetch: Instruction 0x00058463 at PC=0x58 (Cycle 78)
-Writeback: Wrote 0x0000000d to x05 (Cycle 79)
-Memory Access: (none) (Cycle 79)
-Execute: ALU Result=0x00000001 (Cycle 79)
-Forwarding EX_MEM.alu_result=0x1 to rs1 (xb)
-Decode: beq predicted Not Taken, PC set to 0x5c
-Decode: beq, rs1=x11, rs2=x0, imm=0x8 (Cycle 79)
-Fetch: Instruction 0xfe5ff06f at PC=0x5c (Cycle 79)
-Writeback: Wrote 0x00000015 to x06 (Cycle 80)
+Execute: ALU Result=0x1000000c (Cycle 78)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 78)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 78)
+Cycle 79 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x1000000c to x12 (Cycle 79)
+Memory Access: Read Data=0x00000009 from Address=0x1000000c (Cycle 79)
+Execute: ALU Result=0x00000004 (Cycle 79)
+Forwarding EX_MEM.alu_result=0x4 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 79)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 79)
+Cycle 80 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000009 to x10 (Cycle 80)
 Memory Access: (none) (Cycle 80)
-Execute: beq Correct at PC=0x58, Outcome: Not Taken
-Execute: ALU Result=0x0000005c, Branch=Not Taken, Target=0x60 (Cycle 80)
-Decode: jal using BTB target, PC set to 0x40
-Decode: jal, rd=x0, offset=0xffffffe4 (Cycle 80)
-Fetch: Instruction 0x005303b3 at PC=0x40 (Cycle 80)
-Writeback: Wrote 0x00000001 to x11 (Cycle 81)
+Execute: ALU Result=0x00000008 (Cycle 80)
+Forwarding EX_MEM.alu_result=0x8 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x8 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 80)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 80)
+Cycle 81 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x13 (Cycle 81)
 Memory Access: (none) (Cycle 81)
-Execute: jal Correct at PC=0x5c
-Execute: jal at instr_PC=0x5c, imm=0xffffffe4, predicted_pc=0x40, branch_target=0x40
-Execute: ALU Result=0x00000060, Jump Target=0x40 (Cycle 81)
-Decode: add, rd=x7, rs1=x6, rs2=x5 (Cycle 81)
-Fetch: Instruction 0x00460613 at PC=0x44 (Cycle 81)
-Writeback: (none) (Cycle 82)
+Execute: ALU Result=0x00000010 (Cycle 81)
+Forwarding EX_MEM.alu_result=0x10 to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 81)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 81)
+Cycle 82 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000008 to x14 (Cycle 82)
 Memory Access: (none) (Cycle 82)
-Execute: ALU Result=0x00000022 (Cycle 82)
-Decode: addi, rd=x12, rs1=x12, imm=0x4 (Cycle 82)
-Fetch: Instruction 0x00762023 at PC=0x48 (Cycle 82)
-Writeback: (none) (Cycle 83)
+Execute: ALU Result=0x10000010 (Cycle 82)
+Forwarding EX_MEM.alu_result=0x10000010 to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 82)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 82)
+Cycle 83 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000010 to x14 (Cycle 83)
 Memory Access: (none) (Cycle 83)
-Execute: ALU Result=0x10000124 (Cycle 83)
-Forwarding EX_MEM.alu_result=0x10000124 to rs1 (xc)
-Forwarding MEM_WB.alu_result=0x22 to rs2 (x7)
-Decode: sw, rs1=x12, rs2=x7, imm=0x0 (Cycle 83)
-Fetch: Instruction 0x00030293 at PC=0x4c (Cycle 83)
-Writeback: Wrote 0x00000022 to x07 (Cycle 84)
-Memory Access: (none) (Cycle 84)
-Execute: ALU Result=0x10000124 (Cycle 84)
-Decode: addi, rd=x5, rs1=x6, imm=0x0 (Cycle 84)
-Fetch: Instruction 0x00038313 at PC=0x50 (Cycle 84)
-Writeback: Wrote 0x10000124 to x12 (Cycle 85)
-Memory Access: Wrote 0x00000022 to Address=0x10000124 (Cycle 85)
-Execute: ALU Result=0x00000015 (Cycle 85)
-Decode: addi, rd=x6, rs1=x7, imm=0x0 (Cycle 85)
-Fetch: Instruction 0xfff58593 at PC=0x54 (Cycle 85)
+Execute: ALU Result=0x10000010 (Cycle 83)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 84 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x10000010 to x15 (Cycle 84)
+Memory Access: Read Data=0x00000006 from Address=0x10000010 (Cycle 84)
+Execute: NOP (Cycle 84)
+Forwarding MEM_WB.mem_data=0x6 to rs2 (xd)
+Decode: blt predicted Not Taken, PC set to 0x68
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 84)
+Fetch: Instruction 0x00d62023 at PC=0x68 (Cycle 84)
+Cycle 85 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000006 to x13 (Cycle 85)
+Memory Access: (none) (Cycle 85)
+Execute: blt Correct at PC=0x64, Outcome: Not Taken
+Execute: ALU Result=0x00000068 (Cycle 85)
+Decode: sw, rs1=x12, rs2=x13, imm=0x0 (Cycle 85)
+Fetch: Instruction 0x00a7a023 at PC=0x6c (Cycle 85)
+Cycle 86 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 86)
 Memory Access: (none) (Cycle 86)
-Execute: ALU Result=0x00000022 (Cycle 86)
-Decode: addi, rd=x11, rs1=x11, imm=0xffffffff (Cycle 86)
-Fetch: Instruction 0x00058463 at PC=0x58 (Cycle 86)
-Writeback: Wrote 0x00000015 to x05 (Cycle 87)
-Memory Access: (none) (Cycle 87)
-Execute: ALU Result=0x00000000 (Cycle 87)
-Forwarding EX_MEM.alu_result=0x0 to rs1 (xb)
-Decode: beq predicted Not Taken, PC set to 0x5c
-Decode: beq, rs1=x11, rs2=x0, imm=0x8 (Cycle 87)
-Fetch: Instruction 0xfe5ff06f at PC=0x5c (Cycle 87)
-Writeback: Wrote 0x00000022 to x06 (Cycle 88)
-Memory Access: (none) (Cycle 88)
-Execute: beq Misprediction at PC=0x58, Actual: Taken, Predicted: Not Taken, Correcting PC to 0x60
-Execute: ALU Result=0x0000005c (Cycle 88)
-Decode: NOP (flushed) (Cycle 88)
-Fetch: Skipped due to control hazard (Cycle 88)
-Writeback: Wrote 0x00000000 to x11 (Cycle 89)
+Execute: ALU Result=0x1000000c (Cycle 86)
+Decode: sw, rs1=x15, rs2=x10, imm=0x0 (Cycle 86)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 86)
+Cycle 87 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 87)
+Memory Access: Wrote 0x00000006 to Address=0x1000000c (Cycle 87)
+Execute: ALU Result=0x10000010 (Cycle 87)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 87)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 87)
+Cycle 88 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 88)
+Memory Access: Wrote 0x00000009 to Address=0x10000010 (Cycle 88)
+Execute: ALU Result=0x00000004 (Cycle 88)
+Decode: jal using BTB target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 88)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 88)
+Cycle 89 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: (none) (Cycle 89)
 Memory Access: (none) (Cycle 89)
-Execute: NOP (Cycle 89)
-Decode: NOP (flushed) (Cycle 89)
-Fetch: Instruction 0x00000013 at PC=0x60 (Cycle 89)
-Writeback: (none) (Cycle 90)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 89)
+Forwarding MEM_WB.alu_result=0x4 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 89)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 89)
+Cycle 90 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x09 (Cycle 90)
 Memory Access: (none) (Cycle 90)
-Execute: NOP (Cycle 90)
-Decode: addi, rd=x0, rs1=x0, imm=0x0 (Cycle 90)
-Fetch: Instruction 0xffffffff at PC=0x64 (Cycle 90)
+Execute: bge Misprediction at PC=0x38, Actual: Taken, Predicted: Not Taken, Correcting PC to 0x78
+Execute: ALU Result=0x0000003c (Cycle 90)
+Decode: NOP (flushed) (Cycle 90)
+Fetch: Skipped due to control hazard (Cycle 90)
+Cycle 91 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 91)
 Memory Access: (none) (Cycle 91)
-Execute: ALU Result=0x00000000 (Cycle 91)
-Decode: NOP (end of program) (Cycle 91)
-Fetch: Instruction 0x00000000 at PC=0x68 (Cycle 91)
+Execute: NOP (Cycle 91)
+Decode: NOP (flushed) (Cycle 91)
+Fetch: Instruction 0xfff30313 at PC=0x78 (Cycle 91)
+Cycle 92 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 92)
 Memory Access: (none) (Cycle 92)
 Execute: NOP (Cycle 92)
-Decode: NOP (end of program) (Cycle 92)
-Fetch: Instruction 0x00000000 at PC=0x6c (Cycle 92)
+Decode: addi, rd=x6, rs1=x6, imm=0xffffffff (Cycle 92)
+Fetch: Instruction 0x00100393 at PC=0x7c (Cycle 92)
+Cycle 93 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 93)
 Memory Access: (none) (Cycle 93)
-Execute: NOP (Cycle 93)
-Decode: NOP (end of program) (Cycle 93)
-Fetch: Instruction 0x00000000 at PC=0x70 (Cycle 93)
+Execute: ALU Result=0x00000004 (Cycle 93)
+Decode: addi, rd=x7, rs1=x0, imm=0x1 (Cycle 93)
+Fetch: Instruction 0x0063d463 at PC=0x80 (Cycle 93)
+Cycle 94 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
 Writeback: (none) (Cycle 94)
 Memory Access: (none) (Cycle 94)
-Execute: NOP (Cycle 94)
-Decode: NOP (end of program) (Cycle 94)
-Fetch: Instruction 0x00000000 at PC=0x74 (Cycle 94)
+Execute: ALU Result=0x00000001 (Cycle 94)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (x7)
+Forwarding MEM_WB.alu_result=0x4 to rs2 (x6)
+Decode: bge predicted Taken, PC set to 0x88
+Decode: bge, rs1=x7, rs2=x6, imm=0x8 (Cycle 94)
+Fetch: Instruction 0x00000013 at PC=0x88 (Cycle 94)
+Cycle 95 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000004 to x06 (Cycle 95)
+Memory Access: (none) (Cycle 95)
+Execute: bge Misprediction at PC=0x80, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x84
+Execute: ALU Result=0x00000084 (Cycle 95)
+Decode: NOP (flushed) (Cycle 95)
+Fetch: Skipped due to control hazard (Cycle 95)
+Cycle 96 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: Wrote 0x00000001 to x07 (Cycle 96)
+Memory Access: (none) (Cycle 96)
+Execute: NOP (Cycle 96)
+Decode: NOP (flushed) (Cycle 96)
+Fetch: Instruction 0xfadff06f at PC=0x84 (Cycle 96)
+Cycle 97 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: (none) (Cycle 97)
+Memory Access: (none) (Cycle 97)
+Execute: NOP (Cycle 97)
+Decode: jal using computed target, PC set to 0x30
+Decode: jal, rd=x0, offset=0xffffffac (Cycle 97)
+Fetch: Instruction 0xfff30413 at PC=0x30 (Cycle 97)
+Cycle 98 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000000, BTB Valid=No
+Writeback: (none) (Cycle 98)
+Memory Access: (none) (Cycle 98)
+Execute: jal Correct at PC=0x84
+Execute: jal at instr_PC=0x84, imm=0xffffffac, predicted_pc=0x30, branch_target=0x30
+Execute: ALU Result=0x00000088, Jump Target=0x30 (Cycle 98)
+Decode: addi, rd=x8, rs1=x6, imm=0xffffffff (Cycle 98)
+Fetch: Instruction 0x00000493 at PC=0x34 (Cycle 98)
+Cycle 99 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 99)
+Memory Access: (none) (Cycle 99)
+Execute: ALU Result=0x00000003 (Cycle 99)
+Decode: addi, rd=x9, rs1=x0, imm=0x0 (Cycle 99)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 99)
+Cycle 100 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 100)
+Memory Access: (none) (Cycle 100)
+Execute: ALU Result=0x00000000 (Cycle 100)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (x9)
+Forwarding MEM_WB.alu_result=0x3 to rs2 (x8)
+Decode: bge predicted Taken, PC set to 0x78
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 100)
+Fetch: Instruction 0xfff30313 at PC=0x78 (Cycle 100)
+Cycle 101 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000003 to x08 (Cycle 101)
+Memory Access: (none) (Cycle 101)
+Execute: bge Misprediction at PC=0x38, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x3c
+Execute: ALU Result=0x0000003c (Cycle 101)
+Decode: NOP (flushed) (Cycle 101)
+Fetch: Skipped due to control hazard (Cycle 101)
+Cycle 102 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x09 (Cycle 102)
+Memory Access: (none) (Cycle 102)
+Execute: NOP (Cycle 102)
+Decode: NOP (flushed) (Cycle 102)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 102)
+Cycle 103 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 103)
+Memory Access: (none) (Cycle 103)
+Execute: NOP (Cycle 103)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 103)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 103)
+Cycle 104 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 104)
+Memory Access: (none) (Cycle 104)
+Execute: ALU Result=0x00000000 (Cycle 104)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 104)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 104)
+Cycle 105 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 105)
+Memory Access: (none) (Cycle 105)
+Execute: ALU Result=0x00000000 (Cycle 105)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 105)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 105)
+Cycle 106 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x11 (Cycle 106)
+Memory Access: (none) (Cycle 106)
+Execute: ALU Result=0x00000000 (Cycle 106)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 106)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 106)
+Cycle 107 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x11 (Cycle 107)
+Memory Access: (none) (Cycle 107)
+Execute: ALU Result=0x10000000 (Cycle 107)
+Forwarding EX_MEM.alu_result=0x10000000 to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 107)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 107)
+Cycle 108 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x11 (Cycle 108)
+Memory Access: (none) (Cycle 108)
+Execute: ALU Result=0x10000000 (Cycle 108)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 108)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 108)
+Cycle 109 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000000 to x12 (Cycle 109)
+Memory Access: Read Data=0x00000002 from Address=0x10000000 (Cycle 109)
+Execute: ALU Result=0x00000001 (Cycle 109)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x1 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 109)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 109)
+Cycle 110 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x10 (Cycle 110)
+Memory Access: (none) (Cycle 110)
+Execute: ALU Result=0x00000002 (Cycle 110)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 110)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 110)
+Cycle 111 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x13 (Cycle 111)
+Memory Access: (none) (Cycle 111)
+Execute: ALU Result=0x00000004 (Cycle 111)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 111)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 111)
+Cycle 112 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x14 (Cycle 112)
+Memory Access: (none) (Cycle 112)
+Execute: ALU Result=0x10000004 (Cycle 112)
+Forwarding EX_MEM.alu_result=0x10000004 to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 112)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 112)
+Cycle 113 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x14 (Cycle 113)
+Memory Access: (none) (Cycle 113)
+Execute: ALU Result=0x10000004 (Cycle 113)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 114 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000004 to x15 (Cycle 114)
+Memory Access: Read Data=0x00000007 from Address=0x10000004 (Cycle 114)
+Execute: NOP (Cycle 114)
+Forwarding MEM_WB.mem_data=0x7 to rs2 (xd)
+Decode: blt predicted Not Taken, PC set to 0x68
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 114)
+Fetch: Instruction 0x00d62023 at PC=0x68 (Cycle 114)
+Cycle 115 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000007 to x13 (Cycle 115)
+Memory Access: (none) (Cycle 115)
+Execute: blt Misprediction at PC=0x64, Actual: Taken, Predicted: Not Taken, Correcting PC to 0x70
+Execute: ALU Result=0x00000068 (Cycle 115)
+Decode: NOP (flushed) (Cycle 115)
+Fetch: Skipped due to control hazard (Cycle 115)
+Cycle 116 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 116)
+Memory Access: (none) (Cycle 116)
+Execute: NOP (Cycle 116)
+Decode: NOP (flushed) (Cycle 116)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 116)
+Cycle 117 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 117)
+Memory Access: (none) (Cycle 117)
+Execute: NOP (Cycle 117)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 117)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 117)
+Cycle 118 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 118)
+Memory Access: (none) (Cycle 118)
+Execute: ALU Result=0x00000001 (Cycle 118)
+Decode: jal using BTB target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 118)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 118)
+Cycle 119 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 119)
+Memory Access: (none) (Cycle 119)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 119)
+Forwarding MEM_WB.alu_result=0x1 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 119)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 119)
+Cycle 120 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x09 (Cycle 120)
+Memory Access: (none) (Cycle 120)
+Execute: bge Correct at PC=0x38, Outcome: Not Taken
+Execute: ALU Result=0x0000003c (Cycle 120)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 120)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 120)
+Cycle 121 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 121)
+Memory Access: (none) (Cycle 121)
+Execute: ALU Result=0x00000001 (Cycle 121)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x1 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 121)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 121)
+Cycle 122 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 122)
+Memory Access: (none) (Cycle 122)
+Execute: ALU Result=0x00000002 (Cycle 122)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 122)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 122)
+Cycle 123 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x11 (Cycle 123)
+Memory Access: (none) (Cycle 123)
+Execute: ALU Result=0x00000004 (Cycle 123)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 123)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 123)
+Cycle 124 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x11 (Cycle 124)
+Memory Access: (none) (Cycle 124)
+Execute: ALU Result=0x10000004 (Cycle 124)
+Forwarding EX_MEM.alu_result=0x10000004 to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 124)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 124)
+Cycle 125 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x11 (Cycle 125)
+Memory Access: (none) (Cycle 125)
+Execute: ALU Result=0x10000004 (Cycle 125)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 125)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 125)
+Cycle 126 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000004 to x12 (Cycle 126)
+Memory Access: Read Data=0x00000007 from Address=0x10000004 (Cycle 126)
+Execute: ALU Result=0x00000002 (Cycle 126)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 126)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 126)
+Cycle 127 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000007 to x10 (Cycle 127)
+Memory Access: (none) (Cycle 127)
+Execute: ALU Result=0x00000004 (Cycle 127)
+Forwarding EX_MEM.alu_result=0x4 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 127)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 127)
+Cycle 128 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x13 (Cycle 128)
+Memory Access: (none) (Cycle 128)
+Execute: ALU Result=0x00000008 (Cycle 128)
+Forwarding EX_MEM.alu_result=0x8 to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 128)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 128)
+Cycle 129 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x14 (Cycle 129)
+Memory Access: (none) (Cycle 129)
+Execute: ALU Result=0x10000008 (Cycle 129)
+Forwarding EX_MEM.alu_result=0x10000008 to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 129)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 129)
+Cycle 130 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000008 to x14 (Cycle 130)
+Memory Access: (none) (Cycle 130)
+Execute: ALU Result=0x10000008 (Cycle 130)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 131 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000008 to x15 (Cycle 131)
+Memory Access: Read Data=0x00000001 from Address=0x10000008 (Cycle 131)
+Execute: NOP (Cycle 131)
+Forwarding MEM_WB.mem_data=0x1 to rs2 (xd)
+Decode: blt predicted Taken, PC set to 0x70
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 131)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 131)
+Cycle 132 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x13 (Cycle 132)
+Memory Access: (none) (Cycle 132)
+Execute: blt Misprediction at PC=0x64, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x68
+Execute: ALU Result=0x00000068 (Cycle 132)
+Decode: NOP (flushed) (Cycle 132)
+Fetch: Skipped due to control hazard (Cycle 132)
+Cycle 133 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 133)
+Memory Access: (none) (Cycle 133)
+Execute: NOP (Cycle 133)
+Decode: NOP (flushed) (Cycle 133)
+Fetch: Instruction 0x00d62023 at PC=0x68 (Cycle 133)
+Cycle 134 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 134)
+Memory Access: (none) (Cycle 134)
+Execute: NOP (Cycle 134)
+Decode: sw, rs1=x12, rs2=x13, imm=0x0 (Cycle 134)
+Fetch: Instruction 0x00a7a023 at PC=0x6c (Cycle 134)
+Cycle 135 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 135)
+Memory Access: (none) (Cycle 135)
+Execute: ALU Result=0x10000004 (Cycle 135)
+Decode: sw, rs1=x15, rs2=x10, imm=0x0 (Cycle 135)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 135)
+Cycle 136 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 136)
+Memory Access: Wrote 0x00000001 to Address=0x10000004 (Cycle 136)
+Execute: ALU Result=0x10000008 (Cycle 136)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 136)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 136)
+Cycle 137 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 137)
+Memory Access: Wrote 0x00000007 to Address=0x10000008 (Cycle 137)
+Execute: ALU Result=0x00000002 (Cycle 137)
+Decode: jal using BTB target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 137)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 137)
+Cycle 138 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 138)
+Memory Access: (none) (Cycle 138)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 138)
+Forwarding MEM_WB.alu_result=0x2 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 138)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 138)
+Cycle 139 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x09 (Cycle 139)
+Memory Access: (none) (Cycle 139)
+Execute: bge Correct at PC=0x38, Outcome: Not Taken
+Execute: ALU Result=0x0000003c (Cycle 139)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 139)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 139)
+Cycle 140 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 140)
+Memory Access: (none) (Cycle 140)
+Execute: ALU Result=0x00000002 (Cycle 140)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 140)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 140)
+Cycle 141 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 141)
+Memory Access: (none) (Cycle 141)
+Execute: ALU Result=0x00000004 (Cycle 141)
+Forwarding EX_MEM.alu_result=0x4 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 141)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 141)
+Cycle 142 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x11 (Cycle 142)
+Memory Access: (none) (Cycle 142)
+Execute: ALU Result=0x00000008 (Cycle 142)
+Forwarding EX_MEM.alu_result=0x8 to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 142)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 142)
+Cycle 143 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x11 (Cycle 143)
+Memory Access: (none) (Cycle 143)
+Execute: ALU Result=0x10000008 (Cycle 143)
+Forwarding EX_MEM.alu_result=0x10000008 to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 143)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 143)
+Cycle 144 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000008 to x11 (Cycle 144)
+Memory Access: (none) (Cycle 144)
+Execute: ALU Result=0x10000008 (Cycle 144)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 144)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 144)
+Cycle 145 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000008 to x12 (Cycle 145)
+Memory Access: Read Data=0x00000007 from Address=0x10000008 (Cycle 145)
+Execute: ALU Result=0x00000003 (Cycle 145)
+Forwarding EX_MEM.alu_result=0x3 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x3 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 145)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 145)
+Cycle 146 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000007 to x10 (Cycle 146)
+Memory Access: (none) (Cycle 146)
+Execute: ALU Result=0x00000006 (Cycle 146)
+Forwarding EX_MEM.alu_result=0x6 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x6 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 146)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 146)
+Cycle 147 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000003 to x13 (Cycle 147)
+Memory Access: (none) (Cycle 147)
+Execute: ALU Result=0x0000000c (Cycle 147)
+Forwarding EX_MEM.alu_result=0xc to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 147)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 147)
+Cycle 148 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000006 to x14 (Cycle 148)
+Memory Access: (none) (Cycle 148)
+Execute: ALU Result=0x1000000c (Cycle 148)
+Forwarding EX_MEM.alu_result=0x1000000c to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 148)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 148)
+Cycle 149 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x0000000c to x14 (Cycle 149)
+Memory Access: (none) (Cycle 149)
+Execute: ALU Result=0x1000000c (Cycle 149)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 150 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x1000000c to x15 (Cycle 150)
+Memory Access: Read Data=0x00000006 from Address=0x1000000c (Cycle 150)
+Execute: NOP (Cycle 150)
+Forwarding MEM_WB.mem_data=0x6 to rs2 (xd)
+Decode: blt predicted Not Taken, PC set to 0x68
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 150)
+Fetch: Instruction 0x00d62023 at PC=0x68 (Cycle 150)
+Cycle 151 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000006 to x13 (Cycle 151)
+Memory Access: (none) (Cycle 151)
+Execute: blt Correct at PC=0x64, Outcome: Not Taken
+Execute: ALU Result=0x00000068 (Cycle 151)
+Decode: sw, rs1=x12, rs2=x13, imm=0x0 (Cycle 151)
+Fetch: Instruction 0x00a7a023 at PC=0x6c (Cycle 151)
+Cycle 152 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 152)
+Memory Access: (none) (Cycle 152)
+Execute: ALU Result=0x10000008 (Cycle 152)
+Decode: sw, rs1=x15, rs2=x10, imm=0x0 (Cycle 152)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 152)
+Cycle 153 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 153)
+Memory Access: Wrote 0x00000006 to Address=0x10000008 (Cycle 153)
+Execute: ALU Result=0x1000000c (Cycle 153)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 153)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 153)
+Cycle 154 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 154)
+Memory Access: Wrote 0x00000007 to Address=0x1000000c (Cycle 154)
+Execute: ALU Result=0x00000003 (Cycle 154)
+Decode: jal using BTB target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 154)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 154)
+Cycle 155 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 155)
+Memory Access: (none) (Cycle 155)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 155)
+Forwarding MEM_WB.alu_result=0x3 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 155)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 155)
+Cycle 156 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000003 to x09 (Cycle 156)
+Memory Access: (none) (Cycle 156)
+Execute: bge Misprediction at PC=0x38, Actual: Taken, Predicted: Not Taken, Correcting PC to 0x78
+Execute: ALU Result=0x0000003c (Cycle 156)
+Decode: NOP (flushed) (Cycle 156)
+Fetch: Skipped due to control hazard (Cycle 156)
+Cycle 157 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 157)
+Memory Access: (none) (Cycle 157)
+Execute: NOP (Cycle 157)
+Decode: NOP (flushed) (Cycle 157)
+Fetch: Instruction 0xfff30313 at PC=0x78 (Cycle 157)
+Cycle 158 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 158)
+Memory Access: (none) (Cycle 158)
+Execute: NOP (Cycle 158)
+Decode: addi, rd=x6, rs1=x6, imm=0xffffffff (Cycle 158)
+Fetch: Instruction 0x00100393 at PC=0x7c (Cycle 158)
+Cycle 159 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 159)
+Memory Access: (none) (Cycle 159)
+Execute: ALU Result=0x00000003 (Cycle 159)
+Decode: addi, rd=x7, rs1=x0, imm=0x1 (Cycle 159)
+Fetch: Instruction 0x0063d463 at PC=0x80 (Cycle 159)
+Cycle 160 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 160)
+Memory Access: (none) (Cycle 160)
+Execute: ALU Result=0x00000001 (Cycle 160)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (x7)
+Forwarding MEM_WB.alu_result=0x3 to rs2 (x6)
+Decode: bge predicted Not Taken, PC set to 0x84
+Decode: bge, rs1=x7, rs2=x6, imm=0x8 (Cycle 160)
+Fetch: Instruction 0xfadff06f at PC=0x84 (Cycle 160)
+Cycle 161 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000003 to x06 (Cycle 161)
+Memory Access: (none) (Cycle 161)
+Execute: bge Correct at PC=0x80, Outcome: Not Taken
+Execute: ALU Result=0x00000084 (Cycle 161)
+Decode: jal using BTB target, PC set to 0x30
+Decode: jal, rd=x0, offset=0xffffffac (Cycle 161)
+Fetch: Instruction 0xfff30413 at PC=0x30 (Cycle 161)
+Cycle 162 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x07 (Cycle 162)
+Memory Access: (none) (Cycle 162)
+Execute: jal Correct at PC=0x84
+Execute: jal at instr_PC=0x84, imm=0xffffffac, predicted_pc=0x30, branch_target=0x30
+Execute: ALU Result=0x00000088, Jump Target=0x30 (Cycle 162)
+Decode: addi, rd=x8, rs1=x6, imm=0xffffffff (Cycle 162)
+Fetch: Instruction 0x00000493 at PC=0x34 (Cycle 162)
+Cycle 163 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 163)
+Memory Access: (none) (Cycle 163)
+Execute: ALU Result=0x00000002 (Cycle 163)
+Decode: addi, rd=x9, rs1=x0, imm=0x0 (Cycle 163)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 163)
+Cycle 164 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 164)
+Memory Access: (none) (Cycle 164)
+Execute: ALU Result=0x00000000 (Cycle 164)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (x9)
+Forwarding MEM_WB.alu_result=0x2 to rs2 (x8)
+Decode: bge predicted Taken, PC set to 0x78
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 164)
+Fetch: Instruction 0xfff30313 at PC=0x78 (Cycle 164)
+Cycle 165 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x08 (Cycle 165)
+Memory Access: (none) (Cycle 165)
+Execute: bge Misprediction at PC=0x38, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x3c
+Execute: ALU Result=0x0000003c (Cycle 165)
+Decode: NOP (flushed) (Cycle 165)
+Fetch: Skipped due to control hazard (Cycle 165)
+Cycle 166 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x09 (Cycle 166)
+Memory Access: (none) (Cycle 166)
+Execute: NOP (Cycle 166)
+Decode: NOP (flushed) (Cycle 166)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 166)
+Cycle 167 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 167)
+Memory Access: (none) (Cycle 167)
+Execute: NOP (Cycle 167)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 167)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 167)
+Cycle 168 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 168)
+Memory Access: (none) (Cycle 168)
+Execute: ALU Result=0x00000000 (Cycle 168)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 168)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 168)
+Cycle 169 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 169)
+Memory Access: (none) (Cycle 169)
+Execute: ALU Result=0x00000000 (Cycle 169)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 169)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 169)
+Cycle 170 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x11 (Cycle 170)
+Memory Access: (none) (Cycle 170)
+Execute: ALU Result=0x00000000 (Cycle 170)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 170)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 170)
+Cycle 171 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x11 (Cycle 171)
+Memory Access: (none) (Cycle 171)
+Execute: ALU Result=0x10000000 (Cycle 171)
+Forwarding EX_MEM.alu_result=0x10000000 to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 171)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 171)
+Cycle 172 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x11 (Cycle 172)
+Memory Access: (none) (Cycle 172)
+Execute: ALU Result=0x10000000 (Cycle 172)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 172)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 172)
+Cycle 173 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000000 to x12 (Cycle 173)
+Memory Access: Read Data=0x00000002 from Address=0x10000000 (Cycle 173)
+Execute: ALU Result=0x00000001 (Cycle 173)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x1 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 173)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 173)
+Cycle 174 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x10 (Cycle 174)
+Memory Access: (none) (Cycle 174)
+Execute: ALU Result=0x00000002 (Cycle 174)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 174)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 174)
+Cycle 175 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x13 (Cycle 175)
+Memory Access: (none) (Cycle 175)
+Execute: ALU Result=0x00000004 (Cycle 175)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 175)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 175)
+Cycle 176 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x14 (Cycle 176)
+Memory Access: (none) (Cycle 176)
+Execute: ALU Result=0x10000004 (Cycle 176)
+Forwarding EX_MEM.alu_result=0x10000004 to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 176)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 176)
+Cycle 177 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x14 (Cycle 177)
+Memory Access: (none) (Cycle 177)
+Execute: ALU Result=0x10000004 (Cycle 177)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 178 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000004 to x15 (Cycle 178)
+Memory Access: Read Data=0x00000001 from Address=0x10000004 (Cycle 178)
+Execute: NOP (Cycle 178)
+Forwarding MEM_WB.mem_data=0x1 to rs2 (xd)
+Decode: blt predicted Not Taken, PC set to 0x68
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 178)
+Fetch: Instruction 0x00d62023 at PC=0x68 (Cycle 178)
+Cycle 179 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x13 (Cycle 179)
+Memory Access: (none) (Cycle 179)
+Execute: blt Correct at PC=0x64, Outcome: Not Taken
+Execute: ALU Result=0x00000068 (Cycle 179)
+Decode: sw, rs1=x12, rs2=x13, imm=0x0 (Cycle 179)
+Fetch: Instruction 0x00a7a023 at PC=0x6c (Cycle 179)
+Cycle 180 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 180)
+Memory Access: (none) (Cycle 180)
+Execute: ALU Result=0x10000000 (Cycle 180)
+Decode: sw, rs1=x15, rs2=x10, imm=0x0 (Cycle 180)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 180)
+Cycle 181 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 181)
+Memory Access: Wrote 0x00000001 to Address=0x10000000 (Cycle 181)
+Execute: ALU Result=0x10000004 (Cycle 181)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 181)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 181)
+Cycle 182 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 182)
+Memory Access: Wrote 0x00000002 to Address=0x10000004 (Cycle 182)
+Execute: ALU Result=0x00000001 (Cycle 182)
+Decode: jal using BTB target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 182)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 182)
+Cycle 183 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 183)
+Memory Access: (none) (Cycle 183)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 183)
+Forwarding MEM_WB.alu_result=0x1 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 183)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 183)
+Cycle 184 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x09 (Cycle 184)
+Memory Access: (none) (Cycle 184)
+Execute: bge Correct at PC=0x38, Outcome: Not Taken
+Execute: ALU Result=0x0000003c (Cycle 184)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 184)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 184)
+Cycle 185 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 185)
+Memory Access: (none) (Cycle 185)
+Execute: ALU Result=0x00000001 (Cycle 185)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x1 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 185)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 185)
+Cycle 186 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 186)
+Memory Access: (none) (Cycle 186)
+Execute: ALU Result=0x00000002 (Cycle 186)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 186)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 186)
+Cycle 187 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x11 (Cycle 187)
+Memory Access: (none) (Cycle 187)
+Execute: ALU Result=0x00000004 (Cycle 187)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 187)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 187)
+Cycle 188 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x11 (Cycle 188)
+Memory Access: (none) (Cycle 188)
+Execute: ALU Result=0x10000004 (Cycle 188)
+Forwarding EX_MEM.alu_result=0x10000004 to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 188)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 188)
+Cycle 189 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x11 (Cycle 189)
+Memory Access: (none) (Cycle 189)
+Execute: ALU Result=0x10000004 (Cycle 189)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 189)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 189)
+Cycle 190 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000004 to x12 (Cycle 190)
+Memory Access: Read Data=0x00000002 from Address=0x10000004 (Cycle 190)
+Execute: ALU Result=0x00000002 (Cycle 190)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 190)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 190)
+Cycle 191 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x10 (Cycle 191)
+Memory Access: (none) (Cycle 191)
+Execute: ALU Result=0x00000004 (Cycle 191)
+Forwarding EX_MEM.alu_result=0x4 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 191)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 191)
+Cycle 192 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x13 (Cycle 192)
+Memory Access: (none) (Cycle 192)
+Execute: ALU Result=0x00000008 (Cycle 192)
+Forwarding EX_MEM.alu_result=0x8 to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 192)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 192)
+Cycle 193 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x14 (Cycle 193)
+Memory Access: (none) (Cycle 193)
+Execute: ALU Result=0x10000008 (Cycle 193)
+Forwarding EX_MEM.alu_result=0x10000008 to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 193)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 193)
+Cycle 194 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000008 to x14 (Cycle 194)
+Memory Access: (none) (Cycle 194)
+Execute: ALU Result=0x10000008 (Cycle 194)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 195 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000008 to x15 (Cycle 195)
+Memory Access: Read Data=0x00000006 from Address=0x10000008 (Cycle 195)
+Execute: NOP (Cycle 195)
+Forwarding MEM_WB.mem_data=0x6 to rs2 (xd)
+Decode: blt predicted Not Taken, PC set to 0x68
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 195)
+Fetch: Instruction 0x00d62023 at PC=0x68 (Cycle 195)
+Cycle 196 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Not Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000006 to x13 (Cycle 196)
+Memory Access: (none) (Cycle 196)
+Execute: blt Misprediction at PC=0x64, Actual: Taken, Predicted: Not Taken, Correcting PC to 0x70
+Execute: ALU Result=0x00000068 (Cycle 196)
+Decode: NOP (flushed) (Cycle 196)
+Fetch: Skipped due to control hazard (Cycle 196)
+Cycle 197 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 197)
+Memory Access: (none) (Cycle 197)
+Execute: NOP (Cycle 197)
+Decode: NOP (flushed) (Cycle 197)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 197)
+Cycle 198 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 198)
+Memory Access: (none) (Cycle 198)
+Execute: NOP (Cycle 198)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 198)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 198)
+Cycle 199 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 199)
+Memory Access: (none) (Cycle 199)
+Execute: ALU Result=0x00000002 (Cycle 199)
+Decode: jal using BTB target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 199)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 199)
+Cycle 200 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 200)
+Memory Access: (none) (Cycle 200)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 200)
+Forwarding MEM_WB.alu_result=0x2 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 200)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 200)
+Cycle 201 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x09 (Cycle 201)
+Memory Access: (none) (Cycle 201)
+Execute: bge Misprediction at PC=0x38, Actual: Taken, Predicted: Not Taken, Correcting PC to 0x78
+Execute: ALU Result=0x0000003c (Cycle 201)
+Decode: NOP (flushed) (Cycle 201)
+Fetch: Skipped due to control hazard (Cycle 201)
+Cycle 202 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 202)
+Memory Access: (none) (Cycle 202)
+Execute: NOP (Cycle 202)
+Decode: NOP (flushed) (Cycle 202)
+Fetch: Instruction 0xfff30313 at PC=0x78 (Cycle 202)
+Cycle 203 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 203)
+Memory Access: (none) (Cycle 203)
+Execute: NOP (Cycle 203)
+Decode: addi, rd=x6, rs1=x6, imm=0xffffffff (Cycle 203)
+Fetch: Instruction 0x00100393 at PC=0x7c (Cycle 203)
+Cycle 204 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 204)
+Memory Access: (none) (Cycle 204)
+Execute: ALU Result=0x00000002 (Cycle 204)
+Decode: addi, rd=x7, rs1=x0, imm=0x1 (Cycle 204)
+Fetch: Instruction 0x0063d463 at PC=0x80 (Cycle 204)
+Cycle 205 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 205)
+Memory Access: (none) (Cycle 205)
+Execute: ALU Result=0x00000001 (Cycle 205)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (x7)
+Forwarding MEM_WB.alu_result=0x2 to rs2 (x6)
+Decode: bge predicted Not Taken, PC set to 0x84
+Decode: bge, rs1=x7, rs2=x6, imm=0x8 (Cycle 205)
+Fetch: Instruction 0xfadff06f at PC=0x84 (Cycle 205)
+Cycle 206 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x06 (Cycle 206)
+Memory Access: (none) (Cycle 206)
+Execute: bge Correct at PC=0x80, Outcome: Not Taken
+Execute: ALU Result=0x00000084 (Cycle 206)
+Decode: jal using BTB target, PC set to 0x30
+Decode: jal, rd=x0, offset=0xffffffac (Cycle 206)
+Fetch: Instruction 0xfff30413 at PC=0x30 (Cycle 206)
+Cycle 207 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x07 (Cycle 207)
+Memory Access: (none) (Cycle 207)
+Execute: jal Correct at PC=0x84
+Execute: jal at instr_PC=0x84, imm=0xffffffac, predicted_pc=0x30, branch_target=0x30
+Execute: ALU Result=0x00000088, Jump Target=0x30 (Cycle 207)
+Decode: addi, rd=x8, rs1=x6, imm=0xffffffff (Cycle 207)
+Fetch: Instruction 0x00000493 at PC=0x34 (Cycle 207)
+Cycle 208 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 208)
+Memory Access: (none) (Cycle 208)
+Execute: ALU Result=0x00000001 (Cycle 208)
+Decode: addi, rd=x9, rs1=x0, imm=0x0 (Cycle 208)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 208)
+Cycle 209 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 209)
+Memory Access: (none) (Cycle 209)
+Execute: ALU Result=0x00000000 (Cycle 209)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (x9)
+Forwarding MEM_WB.alu_result=0x1 to rs2 (x8)
+Decode: bge predicted Taken, PC set to 0x78
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 209)
+Fetch: Instruction 0xfff30313 at PC=0x78 (Cycle 209)
+Cycle 210 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x08 (Cycle 210)
+Memory Access: (none) (Cycle 210)
+Execute: bge Misprediction at PC=0x38, Actual: Not Taken, Predicted: Taken, Correcting PC to 0x3c
+Execute: ALU Result=0x0000003c (Cycle 210)
+Decode: NOP (flushed) (Cycle 210)
+Fetch: Skipped due to control hazard (Cycle 210)
+Cycle 211 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x09 (Cycle 211)
+Memory Access: (none) (Cycle 211)
+Execute: NOP (Cycle 211)
+Decode: NOP (flushed) (Cycle 211)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 211)
+Cycle 212 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 212)
+Memory Access: (none) (Cycle 212)
+Execute: NOP (Cycle 212)
+Decode: addi, rd=x11, rs1=x9, imm=0x0 (Cycle 212)
+Fetch: Instruction 0x00b585b3 at PC=0x40 (Cycle 212)
+Cycle 213 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 213)
+Memory Access: (none) (Cycle 213)
+Execute: ALU Result=0x00000000 (Cycle 213)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 213)
+Fetch: Instruction 0x00b585b3 at PC=0x44 (Cycle 213)
+Cycle 214 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 214)
+Memory Access: (none) (Cycle 214)
+Execute: ALU Result=0x00000000 (Cycle 214)
+Forwarding EX_MEM.alu_result=0x0 to rs1 (xb)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x11, rs1=x11, rs2=x11 (Cycle 214)
+Fetch: Instruction 0x00b28633 at PC=0x48 (Cycle 214)
+Cycle 215 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x11 (Cycle 215)
+Memory Access: (none) (Cycle 215)
+Execute: ALU Result=0x00000000 (Cycle 215)
+Forwarding EX_MEM.alu_result=0x0 to rs2 (xb)
+Decode: add, rd=x12, rs1=x5, rs2=x11 (Cycle 215)
+Fetch: Instruction 0x00062503 at PC=0x4c (Cycle 215)
+Cycle 216 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x11 (Cycle 216)
+Memory Access: (none) (Cycle 216)
+Execute: ALU Result=0x10000000 (Cycle 216)
+Forwarding EX_MEM.alu_result=0x10000000 to rs1 (xc)
+Decode: lw, rd=x10, rs1=x12, imm=0x0 (Cycle 216)
+Fetch: Instruction 0x00148693 at PC=0x50 (Cycle 216)
+Cycle 217 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000000 to x11 (Cycle 217)
+Memory Access: (none) (Cycle 217)
+Execute: ALU Result=0x10000000 (Cycle 217)
+Decode: addi, rd=x13, rs1=x9, imm=0x1 (Cycle 217)
+Fetch: Instruction 0x00d68733 at PC=0x54 (Cycle 217)
+Cycle 218 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000000 to x12 (Cycle 218)
+Memory Access: Read Data=0x00000001 from Address=0x10000000 (Cycle 218)
+Execute: ALU Result=0x00000001 (Cycle 218)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (xd)
+Forwarding EX_MEM.alu_result=0x1 to rs2 (xd)
+Decode: add, rd=x14, rs1=x13, rs2=x13 (Cycle 218)
+Fetch: Instruction 0x00e70733 at PC=0x58 (Cycle 218)
+Cycle 219 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x10 (Cycle 219)
+Memory Access: (none) (Cycle 219)
+Execute: ALU Result=0x00000002 (Cycle 219)
+Forwarding EX_MEM.alu_result=0x2 to rs1 (xe)
+Forwarding EX_MEM.alu_result=0x2 to rs2 (xe)
+Decode: add, rd=x14, rs1=x14, rs2=x14 (Cycle 219)
+Fetch: Instruction 0x00e287b3 at PC=0x5c (Cycle 219)
+Cycle 220 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x13 (Cycle 220)
+Memory Access: (none) (Cycle 220)
+Execute: ALU Result=0x00000004 (Cycle 220)
+Forwarding EX_MEM.alu_result=0x4 to rs2 (xe)
+Decode: add, rd=x15, rs1=x5, rs2=x14 (Cycle 220)
+Fetch: Instruction 0x0007a683 at PC=0x60 (Cycle 220)
+Cycle 221 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x14 (Cycle 221)
+Memory Access: (none) (Cycle 221)
+Execute: ALU Result=0x10000004 (Cycle 221)
+Forwarding EX_MEM.alu_result=0x10000004 to rs1 (xf)
+Decode: lw, rd=x13, rs1=x15, imm=0x0 (Cycle 221)
+Fetch: Instruction 0x00d54663 at PC=0x64 (Cycle 221)
+Cycle 222 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000004 to x14 (Cycle 222)
+Memory Access: (none) (Cycle 222)
+Execute: ALU Result=0x10000004 (Cycle 222)
+Stall: Load-use hazard detected with rd=x13 at PC=0x64
+Pipeline stalled this cycle
+Cycle 223 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x10000004 to x15 (Cycle 223)
+Memory Access: Read Data=0x00000002 from Address=0x10000004 (Cycle 223)
+Execute: NOP (Cycle 223)
+Forwarding MEM_WB.mem_data=0x2 to rs2 (xd)
+Decode: blt predicted Taken, PC set to 0x70
+Decode: blt, rs1=x10, rs2=x13, imm=0xc (Cycle 223)
+Fetch: Instruction 0x00148493 at PC=0x70 (Cycle 223)
+Cycle 224 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000002 to x13 (Cycle 224)
+Memory Access: (none) (Cycle 224)
+Execute: blt Correct at PC=0x64, Outcome: Taken
+Execute: ALU Result=0x00000068 (Cycle 224)
+Decode: addi, rd=x9, rs1=x9, imm=0x1 (Cycle 224)
+Fetch: Instruction 0xfc5ff06f at PC=0x74 (Cycle 224)
+Cycle 225 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 225)
+Memory Access: (none) (Cycle 225)
+Execute: ALU Result=0x00000001 (Cycle 225)
+Decode: jal using BTB target, PC set to 0x38
+Decode: jal, rd=x0, offset=0xffffffc4 (Cycle 225)
+Fetch: Instruction 0x0484d063 at PC=0x38 (Cycle 225)
+Cycle 226 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 226)
+Memory Access: (none) (Cycle 226)
+Execute: jal Correct at PC=0x74
+Execute: jal at instr_PC=0x74, imm=0xffffffc4, predicted_pc=0x38, branch_target=0x38
+Execute: ALU Result=0x00000078, Jump Target=0x38 (Cycle 226)
+Forwarding MEM_WB.alu_result=0x1 to rs1 (x9)
+Decode: bge predicted Not Taken, PC set to 0x3c
+Decode: bge, rs1=x9, rs2=x8, imm=0x40 (Cycle 226)
+Fetch: Instruction 0x00048593 at PC=0x3c (Cycle 226)
+Cycle 227 BPU State:
+-------------------------
+PC=0x00000038: State=Not Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x09 (Cycle 227)
+Memory Access: (none) (Cycle 227)
+Execute: bge Misprediction at PC=0x38, Actual: Taken, Predicted: Not Taken, Correcting PC to 0x78
+Execute: ALU Result=0x0000003c (Cycle 227)
+Decode: NOP (flushed) (Cycle 227)
+Fetch: Skipped due to control hazard (Cycle 227)
+Cycle 228 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 228)
+Memory Access: (none) (Cycle 228)
+Execute: NOP (Cycle 228)
+Decode: NOP (flushed) (Cycle 228)
+Fetch: Instruction 0xfff30313 at PC=0x78 (Cycle 228)
+Cycle 229 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 229)
+Memory Access: (none) (Cycle 229)
+Execute: NOP (Cycle 229)
+Decode: addi, rd=x6, rs1=x6, imm=0xffffffff (Cycle 229)
+Fetch: Instruction 0x00100393 at PC=0x7c (Cycle 229)
+Cycle 230 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 230)
+Memory Access: (none) (Cycle 230)
+Execute: ALU Result=0x00000001 (Cycle 230)
+Decode: addi, rd=x7, rs1=x0, imm=0x1 (Cycle 230)
+Fetch: Instruction 0x0063d463 at PC=0x80 (Cycle 230)
+Cycle 231 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 231)
+Memory Access: (none) (Cycle 231)
+Execute: ALU Result=0x00000001 (Cycle 231)
+Forwarding EX_MEM.alu_result=0x1 to rs1 (x7)
+Forwarding MEM_WB.alu_result=0x1 to rs2 (x6)
+Decode: bge predicted Not Taken, PC set to 0x84
+Decode: bge, rs1=x7, rs2=x6, imm=0x8 (Cycle 231)
+Fetch: Instruction 0xfadff06f at PC=0x84 (Cycle 231)
+Cycle 232 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Not Taken, BTB Target=0x00000000, BTB Valid=No
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x06 (Cycle 232)
+Memory Access: (none) (Cycle 232)
+Execute: bge Misprediction at PC=0x80, Actual: Taken, Predicted: Not Taken, Correcting PC to 0x88
+Execute: ALU Result=0x00000084 (Cycle 232)
+Decode: NOP (flushed) (Cycle 232)
+Fetch: Skipped due to control hazard (Cycle 232)
+Cycle 233 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Taken, BTB Target=0x00000088, BTB Valid=Yes
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: Wrote 0x00000001 to x07 (Cycle 233)
+Memory Access: (none) (Cycle 233)
+Execute: NOP (Cycle 233)
+Decode: NOP (flushed) (Cycle 233)
+Fetch: Instruction 0x00000013 at PC=0x88 (Cycle 233)
+Cycle 234 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Taken, BTB Target=0x00000088, BTB Valid=Yes
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 234)
+Memory Access: (none) (Cycle 234)
+Execute: NOP (Cycle 234)
+Decode: addi, rd=x0, rs1=x0, imm=0x0 (Cycle 234)
+Fetch: Instruction 0xffffffff at PC=0x8c (Cycle 234)
+Cycle 235 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Taken, BTB Target=0x00000088, BTB Valid=Yes
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 235)
+Memory Access: (none) (Cycle 235)
+Execute: ALU Result=0x00000000 (Cycle 235)
+Decode: NOP (end of program) (Cycle 235)
+Fetch: Instruction 0x00000000 at PC=0x90 (Cycle 235)
+Cycle 236 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Taken, BTB Target=0x00000088, BTB Valid=Yes
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 236)
+Memory Access: (none) (Cycle 236)
+Execute: NOP (Cycle 236)
+Decode: NOP (end of program) (Cycle 236)
+Fetch: Instruction 0x00000000 at PC=0x94 (Cycle 236)
+Cycle 237 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Taken, BTB Target=0x00000088, BTB Valid=Yes
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 237)
+Memory Access: (none) (Cycle 237)
+Execute: NOP (Cycle 237)
+Decode: NOP (end of program) (Cycle 237)
+Fetch: Instruction 0x00000000 at PC=0x98 (Cycle 237)
+Cycle 238 BPU State:
+-------------------------
+PC=0x00000038: State=Taken, BTB Target=0x00000078, BTB Valid=Yes
+PC=0x00000064: State=Taken, BTB Target=0x00000070, BTB Valid=Yes
+PC=0x00000074: State=Taken, BTB Target=0x00000038, BTB Valid=Yes
+PC=0x00000080: State=Taken, BTB Target=0x00000088, BTB Valid=Yes
+PC=0x00000084: State=Taken, BTB Target=0x00000030, BTB Valid=Yes
+Writeback: (none) (Cycle 238)
+Memory Access: (none) (Cycle 238)
+Execute: NOP (Cycle 238)
+Decode: NOP (end of program) (Cycle 238)
+Fetch: Instruction 0x00000000 at PC=0x9c (Cycle 238)
 Simulation complete.
-Total Cycles: 94
-Instructions Executed: 80
-Stalls: 0
-Data Hazards: 30
-Control Hazards: 5
-Data Transfer Instructions: 10
-ALU Instructions: 52
-Control Instructions: 18
-Total Branch Predictions: 11
-Correct Branch Predictions: 6
-Branch Mispredictions: 5
-Branch Prediction Hit Rate: 6/11 (54.55%)
+Total Cycles: 238
+Instructions Executed: 192
+Stalls: 10
+Data Hazards: 162
+Control Hazards: 16
+Data Transfer Instructions: 37
+ALU Instructions: 114
+Control Instructions: 41
+Total Branch Predictions: 28
+Correct Branch Predictions: 12
+Branch Mispredictions: 16
+Branch Prediction Hit Rate: 12/28 (42.86%)
 
 Final Register File State:
 -------------------------
 x00: 0x00000000
 x01: 0x00000000
-x02: 0x7fffffdc
+x02: 0x00000000
 x03: 0x00000000
 x04: 0x00000000
-x05: 0x00000015
-x06: 0x00000022
-x07: 0x00000022
-x08: 0x00000000
-x09: 0x00000000
-x10: 0x00000000
+x05: 0x10000000
+x06: 0x00000001
+x07: 0x00000001
+x08: 0x00000001
+x09: 0x00000001
+x10: 0x00000001
 x11: 0x00000000
-x12: 0x10000124
-x13: 0x00000000
-x14: 0x00000000
-x15: 0x00000000
+x12: 0x10000000
+x13: 0x00000002
+x14: 0x00000004
+x15: 0x10000004
 x16: 0x00000000
 x17: 0x00000000
 x18: 0x00000000
@@ -593,20 +2905,15 @@ x24: 0x00000000
 x25: 0x00000000
 x26: 0x00000000
 x27: 0x00000000
-x28: 0x0000000a
+x28: 0x00000000
 x29: 0x00000000
 x30: 0x00000000
 x31: 0x00000000
 
 Final Data Memory State:
 -----------------------
-0x10000100: 0x00000000
-0x10000104: 0x00000001
-0x10000108: 0x00000001
-0x1000010c: 0x00000002
-0x10000110: 0x00000003
-0x10000114: 0x00000005
-0x10000118: 0x00000008
-0x1000011c: 0x0000000d
-0x10000120: 0x00000015
-0x10000124: 0x00000022
+0x10000000: 0x00000001
+0x10000004: 0x00000002
+0x10000008: 0x00000006
+0x1000000c: 0x00000007
+0x10000010: 0x00000009
