@@ -14,15 +14,17 @@ struct IF_ID {
 
 // Define pipeline register structure for ID/EX with detailed control signals
 struct ID_EX {
-    uint32_t PC;
-    uint32_t rs1_val;  // Value of source register 1
-    uint32_t rs2_val;  // Value of source register 2
+    uint32_t instr_PC;    // Original PC of the instruction
+    uint32_t PC;          // Current PC (unused in this fix, kept for compatibility)
+    uint32_t predicted_pc;// Predicted PC for branch/jump verification
+    uint32_t rs1_val;     // Value of source register 1
+    uint32_t rs2_val;     // Value of source register 2
     uint32_t base_reg;
-    uint32_t imm;      // Immediate value
-    uint32_t rd;       // Destination register
+    uint32_t imm;         // Immediate value
+    uint32_t rd;          // Destination register
     uint32_t opcode;
-    uint32_t func3;    // Function code 3 bits
-    uint32_t func7;    // Function code 7 bits
+    uint32_t func3;       // Function code 3 bits
+    uint32_t func7;       // Function code 7 bits
 
     // Specific instruction flags
     bool is_add;
@@ -68,7 +70,7 @@ struct MEM_WB {
     uint32_t rd;          // Destination register
     bool reg_write;       // Enable register writeback
     uint32_t mem_data;    // Data read from memory (for lw)
-    bool mem_read; //added for lw instrucions - removing heuristic check mem_data!=0 (as we can use lw rd, 0(some_memory location) can also contain 0)
+    bool mem_read; //added for lw instructions
 };
 
 // Branch Prediction Unit (BPU) Entry
@@ -81,7 +83,7 @@ struct BPU {
 
 // Branch Predictor Variables
 extern std::map<uint32_t, BPU> branch_prediction_unit; // PC -> BPU entry
-extern bool branch_predictor_init;  // Knob6: Initialize predictor state (0: NT- NT, 1: T)
+extern bool branch_predictor_init;  // Knob6: Initialize predictor state (0: NT, 1: T)
 extern uint32_t total_predictions;  // Total branch predictions made
 extern uint32_t correct_predictions;  // Correct branch predictions
 extern uint32_t branch_mispredictions;  // Stat10: Number of branch mispredictions
@@ -99,9 +101,7 @@ extern std::unordered_map<uint32_t, uint8_t> data_memory;
 extern uint32_t reg_file[32];  // Register file (x0 to x31)
 
 extern bool stall;
-
 extern bool control_hazard_flush;
-
 extern bool is_draining;
 
 // Knobs

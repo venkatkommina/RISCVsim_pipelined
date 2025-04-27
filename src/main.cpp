@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
             memory_access();
             execute();
             decode();
-
+            
             if (stall) {
                 id_ex = ID_EX();
                 stall = false;
@@ -106,6 +106,10 @@ int main(int argc, char* argv[]) {
     cout << "Total Branch Predictions: " << total_predictions << endl;
     cout << "Correct Branch Predictions: " << correct_predictions << endl;
     cout << "Branch Mispredictions: " << branch_mispredictions << endl;
+    
+    double hit_rate = total_predictions > 0 ? (double)correct_predictions / total_predictions * 100.0 : 0.0;
+    cout << "Branch Prediction Hit Rate: " << correct_predictions << "/" << total_predictions
+         << " (" << fixed << setprecision(2) << hit_rate << "%)" << endl;
 
     cout << "\nFinal Register File State:" << endl;
     cout << "-------------------------" << endl;

@@ -18,9 +18,7 @@ unordered_map<uint32_t, uint8_t> data_memory;
 uint32_t reg_file[32] = {0};  // Initialize register file to zero
 
 bool stall = false;
-
 bool control_hazard_flush = false;
-
 bool is_draining = false;
 
 bool pipelining_enabled = true;
@@ -77,6 +75,7 @@ void decode() {
     }
 
     id_ex = ID_EX();
+    id_ex.instr_PC = if_id.PC;  // Store original instruction PC
     id_ex.opcode = if_id.instruction & 0x7F;
     id_ex.rd = (if_id.instruction >> 7) & 0x1F;
     id_ex.func3 = (if_id.instruction >> 12) & 0x7;
@@ -88,7 +87,7 @@ void decode() {
         return;
     }
 
-    // Data Forwarding (controlled by knob)
+    // Data Forwarding
     bool rs1_forwarded = false, rs2_forwarded = false;
     if (forwarding_enabled) {
         if (ex_mem.reg_write && ex_mem.rd != 0 && ex_mem.rd == rs1) {
@@ -123,7 +122,7 @@ void decode() {
         id_ex.rs2_val = (rs2 == 0) ? 0 : reg_file[rs2];
     }
 
-    // Set specific instruction flags
+    // Set instruction flags
     id_ex.is_add = (id_ex.opcode == 0x33 && id_ex.func3 == 0 && id_ex.func7 == 0x00);
     id_ex.is_sub = (id_ex.opcode == 0x33 && id_ex.func3 == 0 && id_ex.func7 == 0x20);
     id_ex.is_and = (id_ex.opcode == 0x33 && id_ex.func3 == 0x7 && id_ex.func7 == 0x00);
@@ -136,6 +135,7 @@ void decode() {
     id_ex.is_lui = (id_ex.opcode == 0x37);
     id_ex.is_auipc = (id_ex.opcode == 0x17);
     id_ex.is_beq = (id_ex.opcode == 0x63 && id_ex.func3 == 0x0);
+    id_ex.is_bne = (id_ex.opcode == 0x63 && id_ex.func3 == 0x1);
     id_ex.is_jal = (id_ex.opcode == 0x6F);
     id_ex.is_jalr = (id_ex.opcode == 0x67 && id_ex.func3 == 0x0);
     id_ex.is_mul = (id_ex.opcode == 0x33 && id_ex.func3 == 0 && id_ex.func7 == 0x01);
@@ -148,7 +148,7 @@ void decode() {
     id_ex.mem_read = id_ex.is_lw;
     id_ex.mem_write = id_ex.is_sw;
 
-    // Set base_reg for memory access instructions
+    // Set base_reg for memory access
     if (id_ex.mem_read || id_ex.mem_write) {
         id_ex.base_reg = rs1;
     }
@@ -175,7 +175,7 @@ void decode() {
         id_ex.rs2_val = 0;
     } else if (id_ex.is_sw) {
         id_ex.imm = sign_extend((((if_id.instruction >> 25) & 0x7F) << 5) | ((if_id.instruction >> 7) & 0x1F), 12);
-    } else if (id_ex.is_beq) {
+    } else if (id_ex.is_beq || id_ex.is_bne) {
         id_ex.imm = (((if_id.instruction >> 31) & 0x1) << 12) | (((if_id.instruction >> 7) & 0x1) << 11) |
                     (((if_id.instruction >> 25) & 0x3F) << 5) | (((if_id.instruction >> 8) & 0x0F) << 1);
         id_ex.imm = sign_extend(id_ex.imm & 0x1FFF, 13);
@@ -188,37 +188,35 @@ void decode() {
         id_ex.imm = 0;
     }
 
-    id_ex.PC = if_id.PC;
-
+    // Branch Prediction
     if (id_ex.is_beq || id_ex.is_bne || id_ex.is_jal || id_ex.is_jalr) {
-        // Initialize BPU entry if not present
-        if (branch_prediction_unit.find(id_ex.PC) == branch_prediction_unit.end()) {
-            branch_prediction_unit[id_ex.PC] = BPU();
-            branch_prediction_unit[id_ex.PC].predictor_state = branch_predictor_init;
+        uint32_t instr_PC = id_ex.instr_PC;
+        if (branch_prediction_unit.find(instr_PC) == branch_prediction_unit.end()) {
+            branch_prediction_unit[instr_PC] = BPU();
+            branch_prediction_unit[instr_PC].predictor_state = branch_predictor_init;
         }
-    
+
         uint32_t predicted_pc;
         if (id_ex.is_beq || id_ex.is_bne) {
             total_predictions++;
-            bool predicted_taken = branch_prediction_unit[id_ex.PC].predictor_state;
-            predicted_pc = predicted_taken && branch_prediction_unit[id_ex.PC].btb_valid
-                          ? branch_prediction_unit[id_ex.PC].btb_target
-                          : id_ex.PC + 4;
+            bool predicted_taken = branch_prediction_unit[instr_PC].predictor_state;
+            predicted_pc = predicted_taken && branch_prediction_unit[instr_PC].btb_valid
+                          ? branch_prediction_unit[instr_PC].btb_target
+                          : instr_PC + 4;
             cout << "Decode: " << (id_ex.is_beq ? "beq" : "bne") << " predicted "
                  << (predicted_taken ? "Taken" : "Not Taken")
                  << ", PC set to 0x" << hex << predicted_pc << dec << endl;
         } else {
-            // jal and jalr: always taken, use BTB if valid
-            predicted_pc = branch_prediction_unit[id_ex.PC].btb_valid
-                           ? branch_prediction_unit[id_ex.PC].btb_target
-                           : (id_ex.is_jal ? id_ex.PC + id_ex.imm : (id_ex.rs1_val + id_ex.imm) & ~0x1);
+            predicted_pc = branch_prediction_unit[instr_PC].btb_valid
+                           ? branch_prediction_unit[instr_PC].btb_target
+                           : (id_ex.is_jal ? instr_PC + id_ex.imm : (id_ex.rs1_val + id_ex.imm) & ~0x1);
             cout << "Decode: " << (id_ex.is_jal ? "jal" : "jalr")
-                 << " using " << (branch_prediction_unit[id_ex.PC].btb_valid ? "BTB" : "computed")
+                 << " using " << (branch_prediction_unit[instr_PC].btb_valid ? "BTB" : "computed")
                  << " target, PC set to 0x" << hex << predicted_pc << dec << endl;
         }
-    
+
         PC = predicted_pc;
-        id_ex.PC = predicted_pc; // Store for execute stage verification
+        id_ex.predicted_pc = predicted_pc;  // Store for execute stage verification
     }
 
     // Debug output
@@ -235,40 +233,37 @@ void decode() {
     else if (id_ex.is_lui) ss << "Decode: lui, rd=x" << id_ex.rd << ", imm=0x" << hex << id_ex.imm << dec;
     else if (id_ex.is_auipc) ss << "Decode: auipc, rd=x" << id_ex.rd << ", imm=0x" << hex << id_ex.imm << dec;
     else if (id_ex.is_beq) ss << "Decode: beq, rs1=x" << rs1 << ", rs2=x" << rs2 << ", imm=0x" << hex << id_ex.imm << dec;
+    else if (id_ex.is_bne) ss << "Decode: bne, rs1=x" << rs1 << ", rs2=x" << rs2 << ", imm=0x" << hex << id_ex.imm << dec;
     else if (id_ex.is_jal) ss << "Decode: jal, rd=x" << id_ex.rd << ", offset=0x" << hex << id_ex.imm << dec;
     else if (id_ex.is_jalr) ss << "Decode: jalr, rd=x" << id_ex.rd << ", rs1=x" << rs1 << ", imm=0x" << hex << id_ex.imm << dec;
     else if (id_ex.is_mul) ss << "Decode: mul, rd=x" << id_ex.rd << ", rs1=x" << rs1 << ", rs2=x" << rs2;
-    else ss << "Decode: Unknown instruction at PC=0x" << hex << id_ex.PC << dec;
+    else ss << "Decode: Unknown instruction at PC=0x" << hex << id_ex.instr_PC << dec;
     cout << ss.str() << " (Cycle " << total_cycles << ")" << endl;
 }
 
 void execute() {
-    
-    // Count instructions and types only if not flushed - no need
-    if ( id_ex.opcode != 0) { // Check for valid instruction
-        instructions_executed++;
-        if (id_ex.is_lw || id_ex.is_sw) {
-            data_transfer_instructions++;
-        } else if (id_ex.is_add || id_ex.is_sub || id_ex.is_and || id_ex.is_or ||
-                   id_ex.is_addi || id_ex.is_andi || id_ex.is_ori || id_ex.is_lui ||
-                   id_ex.is_auipc || id_ex.is_mul) {
-            alu_instructions++;
-        } else if (id_ex.is_beq || id_ex.is_jal || id_ex.is_jalr) {
-            control_instructions++;
-        }
-    }else {
+    if (id_ex.opcode == 0) {
         cout << "Execute: NOP (Cycle " << total_cycles << ")" << endl;
         ex_mem = EX_MEM();
         return;
     }
-    ex_mem = EX_MEM();
 
-    ex_mem.PC = id_ex.PC;
+    instructions_executed++;
+    if (id_ex.is_lw || id_ex.is_sw) {
+        data_transfer_instructions++;
+    } else if (id_ex.is_add || id_ex.is_sub || id_ex.is_and || id_ex.is_or ||
+               id_ex.is_addi || id_ex.is_andi || id_ex.is_ori || id_ex.is_lui ||
+               id_ex.is_auipc || id_ex.is_mul) {
+        alu_instructions++;
+    } else if (id_ex.is_beq || id_ex.is_bne || id_ex.is_jal || id_ex.is_jalr) {
+        control_instructions++;
+    }
+
+    ex_mem = EX_MEM();
     ex_mem.rd = id_ex.rd;
     ex_mem.reg_write = id_ex.reg_write;
     ex_mem.mem_read = id_ex.mem_read;
     ex_mem.mem_write = id_ex.mem_write;
-    ex_mem.is_branch = id_ex.is_beq;
 
     if (id_ex.mem_read || id_ex.mem_write) {
         ex_mem.base_reg = id_ex.base_reg;
@@ -286,7 +281,7 @@ void execute() {
     }
 
     if (id_ex.is_auipc) {
-        ex_mem.alu_result = id_ex.PC + id_ex.imm;
+        ex_mem.alu_result = id_ex.instr_PC + id_ex.imm;
     } else if (id_ex.is_lui) {
         ex_mem.alu_result = id_ex.imm;
     } else if (id_ex.is_mul) {
@@ -294,20 +289,20 @@ void execute() {
     }
 
     if (id_ex.is_beq || id_ex.is_bne) {
+        uint32_t instr_PC = id_ex.instr_PC;
         bool actual_taken = id_ex.is_beq ? (id_ex.rs1_val == id_ex.rs2_val) : (id_ex.rs1_val != id_ex.rs2_val);
         ex_mem.is_branch = actual_taken;
-        ex_mem.branch_target = id_ex.PC + id_ex.imm;
-    
-        bool predicted_taken = branch_prediction_unit[id_ex.PC].predictor_state;
-        uint32_t predicted_pc = id_ex.PC;
-    
+        ex_mem.branch_target = instr_PC + id_ex.imm;
+        bool predicted_taken = branch_prediction_unit[instr_PC].predictor_state;
+        uint32_t predicted_pc = id_ex.predicted_pc;
+
         bool mispredicted = (actual_taken != predicted_taken) ||
                            (actual_taken && predicted_pc != ex_mem.branch_target);
         if (mispredicted) {
             branch_mispredictions++;
             control_hazards++;
-            PC = actual_taken ? ex_mem.branch_target : id_ex.PC + 4;
-            cout << "Execute: " << (id_ex.is_beq ? "beq" : "bne") << " Misprediction at PC=0x" << hex << id_ex.PC
+            PC = actual_taken ? ex_mem.branch_target : instr_PC + 4;
+            cout << "Execute: " << (id_ex.is_beq ? "beq" : "bne") << " Misprediction at PC=0x" << hex << instr_PC
                  << ", Actual: " << (actual_taken ? "Taken" : "Not Taken")
                  << ", Predicted: " << (predicted_taken ? "Taken" : "Not Taken")
                  << ", Correcting PC to 0x" << PC << dec << endl;
@@ -316,57 +311,63 @@ void execute() {
             control_hazard_flush = true;
         } else {
             correct_predictions++;
-            cout << "Execute: " << (id_ex.is_beq ? "beq" : "bne") << " Correct at PC=0x" << hex << id_ex.PC
+            cout << "Execute: " << (id_ex.is_beq ? "beq" : "bne") << " Correct at PC=0x" << hex << instr_PC
                  << ", Outcome: " << (actual_taken ? "Taken" : "Not Taken") << dec << endl;
         }
-    
-        branch_prediction_unit[id_ex.PC].predictor_state = actual_taken;
+
+        branch_prediction_unit[instr_PC].predictor_state = actual_taken;
         if (actual_taken) {
-            branch_prediction_unit[id_ex.PC].btb_target = ex_mem.branch_target;
-            branch_prediction_unit[id_ex.PC].btb_valid = true;
+            branch_prediction_unit[instr_PC].btb_target = ex_mem.branch_target;
+            branch_prediction_unit[instr_PC].btb_valid = true;
         }
-        ex_mem.alu_result = id_ex.PC + 4;
+        ex_mem.alu_result = instr_PC + 4;
     } else if (id_ex.is_jal) {
-        ex_mem.branch_target = id_ex.PC + id_ex.imm;
-        uint32_t predicted_pc = id_ex.PC;
-    
+        uint32_t instr_PC = id_ex.instr_PC;
+        ex_mem.branch_target = instr_PC + id_ex.imm;
+        uint32_t predicted_pc = id_ex.predicted_pc;
+
         if (predicted_pc != ex_mem.branch_target) {
             branch_mispredictions++;
             control_hazards++;
             PC = ex_mem.branch_target;
-            cout << "Execute: jal BTB Misprediction at PC=0x" << hex << id_ex.PC
+            cout << "Execute: jal Misprediction at PC=0x" << hex << instr_PC
                  << ", Correcting PC to 0x" << PC << dec << endl;
             if_id = IF_ID();
             id_ex = ID_EX();
             control_hazard_flush = true;
         } else {
-            cout << "Execute: jal Correct at PC=0x" << hex << id_ex.PC << dec << endl;
+            cout << "Execute: jal Correct at PC=0x" << hex << instr_PC << dec << endl;
         }
-    
-        branch_prediction_unit[id_ex.PC].btb_target = ex_mem.branch_target;
-        branch_prediction_unit[id_ex.PC].btb_valid = true;
-        ex_mem.alu_result = id_ex.PC + 4;
+
+        branch_prediction_unit[instr_PC].btb_target = ex_mem.branch_target;
+        branch_prediction_unit[instr_PC].btb_valid = true;
+        ex_mem.alu_result = instr_PC + 4;
         ex_mem.reg_write = true;
+
+        //for debugging
+        cout << "Execute: jal at instr_PC=0x" << hex << instr_PC << ", imm=0x" << id_ex.imm
+     << ", predicted_pc=0x" << predicted_pc << ", branch_target=0x" << ex_mem.branch_target << dec << endl;
     } else if (id_ex.is_jalr) {
+        uint32_t instr_PC = id_ex.instr_PC;
         ex_mem.branch_target = (id_ex.rs1_val + id_ex.imm) & ~0x1;
-        uint32_t predicted_pc = id_ex.PC;
-    
+        uint32_t predicted_pc = id_ex.predicted_pc;
+
         if (predicted_pc != ex_mem.branch_target) {
             branch_mispredictions++;
             control_hazards++;
             PC = ex_mem.branch_target;
-            cout << "Execute: jalr BTB Misprediction at PC=0x" << hex << id_ex.PC
+            cout << "Execute: jalr Misprediction at PC=0x" << hex << instr_PC
                  << ", Correcting PC to 0x" << PC << dec << endl;
             if_id = IF_ID();
             id_ex = ID_EX();
             control_hazard_flush = true;
         } else {
-            cout << "Execute: jalr Correct at PC=0x" << hex << id_ex.PC << dec << endl;
+            cout << "Execute: jalr Correct at PC=0x" << hex << instr_PC << dec << endl;
         }
-    
-        branch_prediction_unit[id_ex.PC].btb_target = ex_mem.branch_target;
-        branch_prediction_unit[id_ex.PC].btb_valid = true;
-        ex_mem.alu_result = id_ex.PC + 4;
+
+        branch_prediction_unit[instr_PC].btb_target = ex_mem.branch_target;
+        branch_prediction_unit[instr_PC].btb_valid = true;
+        ex_mem.alu_result = instr_PC + 4;
         ex_mem.reg_write = true;
     }
 
@@ -375,18 +376,16 @@ void execute() {
     }
 
     cout << "Execute: ALU Result=0x" << hex << setw(8) << setfill('0') << ex_mem.alu_result;
-    if (id_ex.is_beq) cout << ", Branch=" << (ex_mem.is_branch ? "Taken" : "Not Taken") << ", Target=0x" << hex << ex_mem.branch_target;
+    if (id_ex.is_beq || id_ex.is_bne) cout << ", Branch=" << (ex_mem.is_branch ? "Taken" : "Not Taken") << ", Target=0x" << hex << ex_mem.branch_target;
     else if (id_ex.is_jal || id_ex.is_jalr) cout << ", Jump Target=0x" << hex << ex_mem.branch_target;
     cout << dec << " (Cycle " << total_cycles << ")" << endl;
 }
 
 void memory_access() {
     mem_wb = MEM_WB();
-
     mem_wb.rd = ex_mem.rd;
     mem_wb.reg_write = ex_mem.reg_write;
     mem_wb.mem_read = ex_mem.mem_read;
-
     mem_wb.alu_result = ex_mem.alu_result;
 
     if (ex_mem.mem_read) {
@@ -403,8 +402,7 @@ void memory_access() {
         }
         cout << "Memory Access: Read Data=0x" << hex << setw(8) << setfill('0') << mem_wb.mem_data 
              << " from Address=0x" << ex_mem.alu_result << dec << " (Cycle " << total_cycles << ")" << endl;
-    }
-    else if (ex_mem.mem_write) {
+    } else if (ex_mem.mem_write) {
         try {
             uint32_t addr = ex_mem.alu_result & ~0x3;
             uint32_t value = ex_mem.rs2_val;
@@ -420,8 +418,7 @@ void memory_access() {
         }
         cout << "Memory Access: Wrote 0x" << hex << setw(8) << setfill('0') << ex_mem.rs2_val 
              << " to Address=0x" << ex_mem.alu_result << dec << " (Cycle " << total_cycles << ")" << endl;
-    }
-    else {
+    } else {
         cout << "Memory Access: (none) (Cycle " << total_cycles << ")" << endl;
     }
 }
@@ -437,7 +434,7 @@ void writeback() {
             cout << "Writing to sp (x2): 0x" << hex << reg_file[2] << dec << endl;
         }
         cout << "Writeback: Wrote 0x" << hex << setw(8) << setfill('0') << reg_file[mem_wb.rd] 
-             << " to x" << dec << setw(2) << setfill('0') << mem_wb.rd << dec << " (Cycle " << total_cycles << ")" << endl;
+             << " to x" << dec << setw(2) << setfill('0') << mem_wb.rd << " (Cycle " << total_cycles << ")" << endl;
     } else {
         cout << "Writeback: (none) (Cycle " << total_cycles << ")" << endl;
     }
